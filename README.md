@@ -1,6 +1,6 @@
 # DeploymentScripts
 
-The deployment scripts code repository is a small open source project of [litecoinnode.org](litecoinnode.org)
+The deployment scripts code repository is a small open source project of [litecoinnode.org](http://litecoinnode.org)
 
 The project was inspired by a post on the [LitecoinTalk](https://litecointalk.org/index.php?topic=24338.0) forums by Losh11 and aims to make it easy for individuals to deploy and maintain Litecoin full nodes.
 
