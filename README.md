@@ -36,6 +36,24 @@ $wget https://raw.githubusercontent.com/LitecoinNode/DeploymentScripts/master/ub
 
 The installation will start and leave a log file of the installation at /root/nodesetuplog.log for you to review.
 
+## Updates
+
+It is important to keep your Litecoin node updated with the latest version of the Litecoin software. If you previously used one of our deployment scripts and want to update your Litecoin node to a newer version of the Litecoin software you can run the script below.
+
+Log in to your Linux server and elevate to root.
+
+```bash
+$sudo su root
+```
+
+Run the update script.
+
+```bash
+$wget https://raw.githubusercontent.com/LitecoinNode/DeploymentScripts/master/ubuntu-update.sh -P /root/ ; bash /root/ubuntu-update.sh 2>&1 | tee /root/nodeupdate.log
+```
+
+The update will start and leave a log file of the installation at /root/nodeupdate.log for you to review.
+
 ## Word of warning
 
 Please do not run scripts from the internet without reviewing them first! Always know what you are getting into before executing anything untrusted from the internet.
