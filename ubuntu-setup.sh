@@ -1,8 +1,5 @@
 #!/bin/bash
 
-#change working directory
-cd /root
-
 #define user account, group and current litecoin version 
 LITECOIND_USER="litecoin" #the user litecoind will run under
 LITECOIND_GROUP="litecoin" #the group litecoind is a member of
@@ -25,6 +22,9 @@ UPSTART_DL_URL="https://raw.githubusercontent.com/LitecoinNode/DeploymentScripts
 WEBSITE_DL_URL="https://raw.githubusercontent.com/LitecoinNode/DeploymentScripts/master" #the download location of the status page website files
 NODESTATUS_DL_URL="https://raw.githubusercontent.com/LitecoinNode/DeploymentScripts/master/nodestatus.py" #the download location of the nodestatus.py file
 LITECOIN_DL_URL="https://download.litecoin.org/litecoin-0.8.7.5/linux/litecoin-0.8.7.5-linux.tar.xz" #litecoin download link
+
+#change working directory
+cd /root
 
 echo "Performing initial system updates"
 apt-get update -y
@@ -99,8 +99,8 @@ echo "addnode=ltc.lurkmore.com" >> $LITECOIND_CONF_FILE
 sed -i -e '10iget_lcd_info = AuthServiceProxy("http://'"$RPC_USER"':'"$RPC_PASSWORD"'@127.0.0.1:9332")\' $HOME/scripts/nodestatus.py #add the generated rpcuser and rpcpassword to the nodestatus.py script
 
 echo "Downloading, unpacking and moving Litecoind to $LITECOIND_BIN_DIR"
-wget $LITECOIN_DL_URL
-tar xvfJ $LITECOIN_VER.tar.xz
+wget $LITECOIN_DL_URL -P $HOME
+tar xvfJ $HOME/$LITECOIN_VER.tar.xz
 rm -f -v $HOME/$LITECOIN_VER.tar.xz
 ARCH=$(getconf LONG_BIT)
 cp -f -v $HOME/$LITECOIN_VER/bin/$ARCH/litecoind $LITECOIND_BIN_DIR
