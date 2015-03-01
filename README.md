@@ -58,6 +58,6 @@ The update will start and leave a log file of the installation at /root/nodeupda
 
 Please do not run scripts from the internet without reviewing them first! Always know what you are getting into before executing anything untrusted from the internet.
 
-This script will reboot your server when it is done! For your convenience it will wait one minute before is issues the restart command so you have time to abort if you do not want to reboot your server after the script is done. You can abort with the key combination CRTL+C.
+This script will reboot your server when it is done! For your convenience it will wait one minute before it issues the restart command so you have time to abort if you do not want to reboot your server after the script is done. You can abort with the key combination CTRL+C.
 
 Please test before deploying to production! Testing takes a bit of time but never hurts in the long run!
