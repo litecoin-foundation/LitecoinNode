@@ -19,7 +19,7 @@ UPSTART_CONF_FILE="litecoind.conf" #name of the litecoind upstart script config 
 
 #define download locations
 UPSTART_DL_URL="https://raw.githubusercontent.com/LitecoinNode/DeploymentScripts/master/litecoind.conf" #the download location of the upstart.conf file for litecoind
-WEBSITE_DL_URL="https://raw.githubusercontent.com/LitecoinNode/DeploymentScripts/master/test-install-node.sh" #the download location of the status page website files
+WEBSITE_DL_URL="https://raw.githubusercontent.com/LitecoinNode/DeploymentScripts/master" #the download location of the status page website files
 NODESTATUS_DL_URL="https://raw.githubusercontent.com/LitecoinNode/DeploymentScripts/master/nodestatus.py" #the download location of the nodestatus.py file
 LITECOIN_DL_URL="https://download.litecoin.org/litecoin-0.8.7.5/linux/litecoin-0.8.7.5-linux.tar.xz" #litecoin download link
 
