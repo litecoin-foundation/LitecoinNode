@@ -24,8 +24,8 @@ echo
 if [[ $ANSWER =~ ^([yY])$ ]]
 then
     wget $UBUNTU_BASE/$DIST-install-osupdate.sh -P $HOME
-	source $HOME/$DIST-install-updates.sh
-	rm -f -v $HOME/$DIST-install-updates.sh
+	source $HOME/$DIST-install-osupdate.sh
+	rm -f -v $HOME/$DIST-install-osupdate.sh
 fi
 
 #do we want to install Litecoin
