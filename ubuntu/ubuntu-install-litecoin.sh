@@ -1,14 +1,17 @@
 #!/bin/bash
 
+#change working directory
 cd $HOME
 
+#add user account for litecoind
 echo "Adding unprivileged user account for litecoind, building the needed folder structure and setting folder permissions"
 useradd -s /usr/sbin/nologin $LITECOIND_USER 
 
+#install ufw firewall configuration package
 echo "Installing firewall configuration tool"
-apt-get update -y
 apt-get install ufw -y
 
+#allow needed firewall ports
 echo "Setting up firewall ports and enable firewall"
 ufw allow ssh
 ufw allow 9333/tcp
@@ -34,6 +37,7 @@ mkdir -v -p $LITECOIND_BIN_DIR
 chmod -R 0700 $LITECOIND_BIN_DIR
 chown -R $LITECOIND_USER:$LITECOIND_GROUP $LITECOIND_BIN_DIR
 
+#create litecoin.conf file
 echo "Creating the litecoin.conf file"
 echo "rpcuser=$RPC_USER" >> $LITECOIND_CONF_FILE
 echo "rpcpassword=$RPC_PASSWORD" >> $LITECOIND_CONF_FILE
@@ -44,6 +48,7 @@ echo "disablewallet=1" >> $LITECOIND_CONF_FILE
 echo "maxconnections=125" >> $LITECOIND_CONF_FILE
 echo "addnode=ltc.lurkmore.com" >> $LITECOIND_CONF_FILE
 
+#download, unpack and move the litecoind binary
 echo "Downloading, unpacking and moving Litecoind to $LITECOIND_BIN_DIR"
 wget $LITECOIN_DL_URL -P $HOME
 tar xvfJ $HOME/$LITECOIN_VER.tar.xz
@@ -52,11 +57,13 @@ ARCH=$(getconf LONG_BIT)
 cp -f -v $HOME/$LITECOIN_VER/bin/$ARCH/litecoind $LITECOIND_BIN_DIR
 rm -r -f -v $HOME/$LITECOIN_VER
 
+#add litecoind to upstart so it starts on system boot
 echo "Adding Litecoind upstart script to make it start on system boot"
 wget $UPSTART_DL_URL -P $UPSTART_CONF_DIR
 chmod -R 0644 $UPSTART_CONF_DIR/$UPSTART_CONF_FILE
 chown -R root:root $UPSTART_CONF_DIR/$UPSTART_CONF_FILE
 initctl reload-configuration #reload the init config
 
+#start litecoin daemon
 echo "Starting Litecoind"
 start litecoind

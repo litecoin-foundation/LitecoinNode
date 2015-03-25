@@ -1,7 +1,9 @@
 #!/bin/bash
 
+#change working directory
 cd $HOME
 
+#create a swap file if it does not exist, if it exists skip this step
 echo "Detect if a swap file exists and create one if this is not the case" #this needs more testing
 TOTAL_RAM=`awk '/MemTotal/{print $2}' /proc/meminfo` #get current system memory to base swap size on
 if free | awk '/^Swap:/ {exit !$2}'; then

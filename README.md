@@ -9,7 +9,7 @@ The scripts are currently in development, use at your own risk! For more informa
 ## Features
 
 - Installation and configuration of litecoind
-- A html page that displays the status of your node 
+- An optional html status page that displays the status of your node
 
 ## Requirements
 
@@ -31,10 +31,10 @@ $sudo su root
 Run the deployment script.
 
 ```bash
-$wget https://raw.githubusercontent.com/LitecoinNode/DeploymentScripts/master/ubuntu-setup.sh -P /root/ ; bash /root/ubuntu-setup.sh 2>&1 | tee /root/nodesetup.log
+$wget https://raw.githubusercontent.com/LitecoinNode/DeploymentScripts/master/linux-install.sh -P /root/ ; bash /root/linux-install.sh 2>&1 | tee /root/linux-install.log
 ```
 
-The installation will start and leave a log file of the installation at /root/nodesetuplog.log for you to review.
+The installation will start and leave a log file of the installation at /root/linux-install.log for you to review.
 
 ## Updates
 
@@ -49,10 +49,10 @@ $sudo su root
 Run the update script.
 
 ```bash
-$wget https://raw.githubusercontent.com/LitecoinNode/DeploymentScripts/master/ubuntu-update.sh -P /root/ ; bash /root/ubuntu-update.sh 2>&1 | tee /root/nodeupdate.log
+$wget https://raw.githubusercontent.com/LitecoinNode/DeploymentScripts/master/linux-update.sh -P /root/ ; bash /root/linux-update.sh 2>&1 | tee /root/linux-update.log
 ```
 
-The update will start and leave a log file of the installation at /root/nodeupdate.log for you to review.
+The update will start and leave a log file of the installation at /root/linux-update.log for you to review.
 
 ## Word of warning
 
