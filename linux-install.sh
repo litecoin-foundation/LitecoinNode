@@ -75,7 +75,7 @@ do
 				DIST="debian"
 				
 				#make scripts directory
-				mkdir -v $HOME/scripts
+				#mkdir -v $HOME/scripts
 				
 				echo "A $DIST installation script is not yet available."
                 #wget $SCRIPT_DL_URL/$DIST/$DIST-install.sh -P $HOME
@@ -98,7 +98,7 @@ do
 				DIST="centos"
 				
 				#make scripts directory
-				mkdir -v $HOME/scripts
+				#mkdir -v $HOME/scripts
 				
 				echo "A $DIST installation script is not yet available."
                 #wget $SCRIPT_DL_URL/$DIST/$DIST-install.sh -P $HOME
