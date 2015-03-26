@@ -5,12 +5,12 @@ HOME="/root" #home directory of the root user, we store some script and tempfile
 LITECOIND_BIN_DIR="/home/litecoind/bin" #the directory that stores the binary file of litecoind
 
 #define litecoin version and download location
-LITECOIN_VER="litecoin-0.8.7.5-linux"
-SCRIPT_DL_URL="https://raw.githubusercontent.com/LitecoinNode/DeploymentScripts/master" #the download location of the script files
+#SCRIPT_DL_URL="https://raw.githubusercontent.com/LitecoinNode/DeploymentScripts/master" #the download location of the script files
 LITECOIN_DL_URL="https://download.litecoin.org/litecoin-0.8.7.5/linux/litecoin-0.8.7.5-linux.tar.xz" #litecoin download link
+LITECOIN_VER="litecoin-0.8.7.5-linux"
 
 #define test download location. do not uncomment this unless you know what you are doing!
-#SCRIPT_DL_URL="https://raw.githubusercontent.com/LitecoinNode/DeploymentScripts/testing" #the test download location of the script files
+SCRIPT_DL_URL="https://raw.githubusercontent.com/LitecoinNode/DeploymentScripts/testing" #the test download location of the script files
 
 #change working directory
 cd $HOME
