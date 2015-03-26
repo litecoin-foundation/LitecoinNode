@@ -19,7 +19,7 @@ cd $HOME
 apt-get update -y
 
 #do we want to install system updates
-read -r -p "Do you want to install operating system updates? (Y/N) " -n 1 ANSWER
+read -r -p "Do you want to install operating system updates? (Y/N) " ANSWER
 echo
 if [[ $ANSWER =~ ^([yY])$ ]]
 then
@@ -29,7 +29,7 @@ then
 fi
 
 #do we want to install Litecoin
-read -r -p "Do you want to install Litecoin? (Y/N) " -n 1 ANSWER
+read -r -p "Do you want to install Litecoin? (Y/N) " ANSWER
 echo
 if [[ $ANSWER =~ ^([yY])$ ]]
 then
@@ -39,7 +39,7 @@ then
 fi
 
 #do we want to install the http status page
-read -r -p "Do you want to install the http status page? (Y/N) " -n 1 ANSWER
+read -r -p "Do you want to install the http status page? (Y/N) " ANSWER
 echo
 if [[ $ANSWER =~ ^([yY])$ ]]
 then
@@ -49,7 +49,7 @@ then
 fi
 
 #do we want to create a swap file
-read -r -p "Do you want to create a swap file? (Y/N) " -n 1 ANSWER
+read -r -p "Do you want to create a swap file? (Y/N) " ANSWER
 echo
 if [[ $ANSWER =~ ^([yY])$ ]]
 then

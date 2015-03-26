@@ -41,7 +41,7 @@ do
 				rm -f -v $HOME/$DIST-update.sh
 								
 				#do we want to reboot the system
-				read -r -p "All done! Do you want to reboot? (Y/N) " -n 1 ANSWER
+				read -r -p "All done! Do you want to reboot? (Y/N) " ANSWER
 				echo
 				if [[ $ANSWER =~ ^([yY])$ ]]
 				then
@@ -61,7 +61,7 @@ do
 				#rm -f -v $HOME/$DIST-update.sh
 								
 				#do we want to reboot the system
-				#read -r -p "All done! Do you want to reboot? (Y/N) " -n 1 ANSWER
+				#read -r -p "All done! Do you want to reboot? (Y/N) " ANSWER
 				#echo
 				#if [[ $ANSWER =~ ^([yY])$ ]]
 				#then
@@ -81,7 +81,7 @@ do
 				#rm -f -v $HOME/$DIST-update.sh				
 								
 				#do we want to reboot the system
-				#read -r -p "All done! Do you want to reboot? (Y/N) " -n 1 ANSWER
+				#read -r -p "All done! Do you want to reboot? (Y/N) " ANSWER
 				#echo
 				#if [[ $ANSWER =~ ^([yY])$ ]]
 				#then
