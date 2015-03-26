@@ -23,9 +23,9 @@ read -r -p "Do you want to install operating system updates? (Y/N) " ANSWER
 echo
 if [[ $ANSWER =~ ^([yY])$ ]]
 then
-    wget $UBUNTU_BASE/$DIST-install-osupdate.sh -P $HOME
-	source $HOME/$DIST-install-osupdate.sh
-	rm -f -v $HOME/$DIST-install-osupdate.sh
+	#update operating system
+	echo "Performing operating system updates"
+	apt-get upgrade -y
 fi
 
 #do we want to install Litecoin
