@@ -8,7 +8,7 @@ WEBSITE_DIR="/usr/share/nginx/html" #the directory that stores the http status p
 UPSTART_CONF_FILE="litecoind.conf" #name of the litecoind upstart script config file. This is not the litecoin.conf file!
 
 #define download locations
-UBUNTU_BASE="https://raw.githubusercontent.com/LitecoinNode/DeploymentScripts/master/$DIST" #base directory for ubuntu script files
+UBUNTU_BASE="$SCRIPT_DL_URL/$DIST" #base directory for ubuntu script files
 UPSTART_DL_URL="$UBUNTU_BASE/litecoind.conf" #the download location of the upstart.conf file for litecoind
 NODESTATUS_DL_URL="$UBUNTU_BASE/$DIST-nodestatus.py" #the download location of the nodestatus.py file
 
