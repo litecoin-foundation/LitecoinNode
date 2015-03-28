@@ -43,10 +43,14 @@ then
 			#download the update script
 			echo "Downloading the update script."
 			wget $UBUNTU_BASE/$DIST-update.sh -P $HOME/scripts
+			chmod -R 0700 $HOME/scripts/$DIST-update.py
+			chown -R root:root $HOME/scripts/$DIST-update.py
 			
 			#download the version file
 			echo "Downloading the version file."
 			wget $SCRIPT_DL_URL/shared/version -P $HOME/scripts
+			chmod -R 0600 $HOME/scripts/version
+			chown -R root:root $HOME/scripts/version
 
 			#add the update script to cron and run it every sunday
 			echo "Add the update script to cron and run it every sunday"
