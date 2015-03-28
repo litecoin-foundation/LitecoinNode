@@ -30,16 +30,16 @@ echo "Install python dependencies and download, save and set permissions for nod
 apt-get install python-pip -y
 pip install python-bitcoinrpc
 wget $NODESTATUS_DL_URL -P $HOME/scripts
-chmod -R 0700 $HOME/scripts/$DIST-nodestatus.py
-chown -R root:root $HOME/scripts/$DIST-nodestatus.py
+chmod -R 0700 $HOME/scripts/litecoin-node-status.py
+chown -R root:root $HOME/scripts/litecoin-node-status.py
 
 #add the python node status script to cron and run it every 10 minutes
 echo "Add the node status script to cron and run it every 10 minutes"
-echo "*/10 * * * * /usr/bin/python $HOME/scripts/$DIST-nodestatus.py" >> /$HOME/scripts/crontempfile
+echo "*/10 * * * * /usr/bin/python $HOME/scripts/litecoin-node-status.py" >> /$HOME/scripts/crontempfile
 crontab $HOME/scripts/crontempfile
 rm $HOME/scripts/crontempfile
 
-#Add Litecoin rpc user and password to the nodestatus.py script
-echo "Add Litecoin rpc user and password to the node-status.py script"
-sed -i -e '10iget_lcd_info = AuthServiceProxy("http://'"$RPC_USER"':'"$RPC_PASSWORD"'@127.0.0.1:9332")\' $HOME/scripts/$DIST-nodestatus.py #add the generated rpcuser and rpcpassword to the nodestatus.py script
-python $HOME/scripts/$DIST-nodestatus.py
+#Add Litecoin rpc user and password to the litecoin-node-status.py script
+echo "Add Litecoin rpc user and password to the litecoin-nodes-tatus.py script"
+sed -i -e '10iget_lcd_info = AuthServiceProxy("http://'"$RPC_USER"':'"$RPC_PASSWORD"'@127.0.0.1:9332")\' $HOME/scripts/litecoin-node-status.py #add the generated rpcuser and rpcpassword to the litecoin-node-status.py script
+python $HOME/scripts/litecoin-node-status.py

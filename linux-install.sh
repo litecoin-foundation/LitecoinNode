@@ -16,12 +16,13 @@ LITECOIND_CONF_FILE="/home/litecoind/.litecoin/litecoin.conf" #the litecoind con
 
 #define download locations
 #SCRIPT_DL_URL="https://raw.githubusercontent.com/LitecoinNode/DeploymentScripts/master" #the download location of the script files
-#WEBSITE_DL_URL="https://raw.githubusercontent.com/LitecoinNode/DeploymentScripts/master/www" #the download location of the status page website files
+#WEBSITE_DL_URL="https://raw.githubusercontent.com/LitecoinNode/DeploymentScripts/master/shared/www" #the download location of the status page website files
+NODESTATUS_DL_URL="$SCRIPT_DL_URL/shared/litecoin-node-status.py" #the download location of the nodestatus.py file
 LITECOIN_DL_URL="https://download.litecoin.org/litecoin-0.8.7.5/linux/litecoin-0.8.7.5-linux.tar.xz" #litecoin download link
 
 #define test download locations. do not uncomment this unless you know what you are doing!
 SCRIPT_DL_URL="https://raw.githubusercontent.com/LitecoinNode/DeploymentScripts/testing" #the test download location of the script files
-WEBSITE_DL_URL="https://raw.githubusercontent.com/LitecoinNode/DeploymentScripts/testing/www" #the test download location of the status page website files
+WEBSITE_DL_URL="https://raw.githubusercontent.com/LitecoinNode/DeploymentScripts/testing/shared/www" #the test download location of the status page website files
 
 #generate random user and password for rpc
 RPC_USER=`< /dev/urandom tr -dc A-Za-z0-9 | head -c30` #this generates a random rpc username

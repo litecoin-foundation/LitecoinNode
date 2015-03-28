@@ -10,7 +10,6 @@ UPSTART_CONF_FILE="litecoind.conf" #name of the litecoind upstart script config 
 #define download locations
 UBUNTU_BASE="$SCRIPT_DL_URL/$DIST" #base directory for ubuntu script files
 UPSTART_DL_URL="$UBUNTU_BASE/litecoind.conf" #the download location of the upstart.conf file for litecoind
-NODESTATUS_DL_URL="$UBUNTU_BASE/$DIST-nodestatus.py" #the download location of the nodestatus.py file
 
 #change working directory
 cd $HOME
