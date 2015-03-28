@@ -35,6 +35,25 @@ then
 	wget $UBUNTU_BASE/$DIST-install-litecoin.sh -P $HOME
 	source $HOME/$DIST-install-litecoin.sh
 	rm -f -v $HOME/$DIST-install-litecoin.sh
+	
+		read -r -p "Do you want to install the Litecoin automatic update script? (Y/N) " ANSWER
+		echo
+		if [[ $ANSWER =~ ^([yY])$ ]]
+		then
+			#download the update script
+			echo "Downloading the update script."
+			wget $UBUNTU_BASE/$DIST-update.sh -P $HOME/scripts
+			
+			#download the version file
+			echo "Downloading the version file."
+			wget $SCRIPT_DL_URL/shared/version -P $HOME/scripts
+
+			#add the update script to cron and run it every sunday
+			echo "Add the update script to cron and run it every sunday"
+			echo "45 23 * * 7 /usr/bin/bash $HOME/scripts/ubuntu-update.sh" >> /$HOME/scripts/crontempfile
+			crontab $HOME/scripts/crontempfile
+			rm $HOME/scripts/crontempfile
+	fi
 fi
 
 #do we want to install the http status page

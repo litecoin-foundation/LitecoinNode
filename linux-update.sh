@@ -6,10 +6,13 @@ LITECOIND_BIN_DIR="/home/litecoind/bin" #the directory that stores the binary fi
 
 #define test download location. do not uncomment this unless you know what you are doing!
 SCRIPT_DL_URL="https://raw.githubusercontent.com/LitecoinNode/DeploymentScripts/testing" #the test download location of the script files
+WEBSITE_DL_URL="https://raw.githubusercontent.com/LitecoinNode/DeploymentScripts/testing/shared/www" #the test download location of the status page website files
 
 #define litecoin version and download location
 #SCRIPT_DL_URL="https://raw.githubusercontent.com/LitecoinNode/DeploymentScripts/master" #the download location of the script files
+#WEBSITE_DL_URL="https://raw.githubusercontent.com/LitecoinNode/DeploymentScripts/master/shared/www" #the test download location of the status page website files
 LITECOIN_DL_URL="https://download.litecoin.org/litecoin-0.8.7.5/linux/litecoin-0.8.7.5-linux.tar.xz" #litecoin download link
+NODESTATUS_DL_URL="$SCRIPT_DL_URL/shared/litecoin-node-status.py" #the download location of the nodestatus.py file
 LITECOIN_VER="litecoin-0.8.7.5-linux"
 
 #change working directory
