@@ -32,7 +32,7 @@ read -r -p "Do you want to install Litecoin? (Y/N) " ANSWER
 echo
 if [[ $ANSWER =~ ^([yY])$ ]]
 then
-    wget $UBUNTU_BASE/$DIST-install-litecoin.sh -P $HOME
+	wget $UBUNTU_BASE/$DIST-install-litecoin.sh -P $HOME
 	source $HOME/$DIST-install-litecoin.sh
 	rm -f -v $HOME/$DIST-install-litecoin.sh
 fi
@@ -42,7 +42,7 @@ read -r -p "Do you want to install the http status page? (Y/N) " ANSWER
 echo
 if [[ $ANSWER =~ ^([yY])$ ]]
 then
-    wget $UBUNTU_BASE/$DIST-install-statuspage.sh -P $HOME
+	wget $UBUNTU_BASE/$DIST-install-statuspage.sh -P $HOME
 	source $HOME/$DIST-install-statuspage.sh
 	rm -f -v $HOME/$DIST-install-statuspage.sh
 fi
@@ -52,7 +52,7 @@ read -r -p "Do you want to create a swap file? (Y/N) " ANSWER
 echo
 if [[ $ANSWER =~ ^([yY])$ ]]
 then
-    wget $UBUNTU_BASE/$DIST-install-createswap.sh -P $HOME
+	wget $UBUNTU_BASE/$DIST-install-createswap.sh -P $HOME
 	source $HOME/$DIST-install-createswap.sh
 	rm -f -v $HOME/$DIST-install-createswap.sh
 fi

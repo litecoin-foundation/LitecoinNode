@@ -10,9 +10,6 @@ ip_data = json.load(get_ip_info)
 
 lcd_data = get_lcd_info.getinfo()
 
-#ff = open('/usr/share/nginx/html/index.html', 'w')
-
-
 ff.write("""<!DOCTYPE html>""")
 ff.write("""<html lang="en">""")
 ff.write("""<head>""")

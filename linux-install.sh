@@ -14,15 +14,15 @@ LITECOIND_HOME_DIR="/home/litecoind" #home directory of litecoin user account
 #define configuration file locations
 LITECOIND_CONF_FILE="/home/litecoind/.litecoin/litecoin.conf" #the litecoind configuration file
 
-#define download locations
-#SCRIPT_DL_URL="https://raw.githubusercontent.com/LitecoinNode/DeploymentScripts/master" #the download location of the script files
-#WEBSITE_DL_URL="https://raw.githubusercontent.com/LitecoinNode/DeploymentScripts/master/shared/www" #the download location of the status page website files
-NODESTATUS_DL_URL="$SCRIPT_DL_URL/shared/litecoin-node-status.py" #the download location of the nodestatus.py file
-LITECOIN_DL_URL="https://download.litecoin.org/litecoin-0.8.7.5/linux/litecoin-0.8.7.5-linux.tar.xz" #litecoin download link
-
 #define test download locations. do not uncomment this unless you know what you are doing!
 SCRIPT_DL_URL="https://raw.githubusercontent.com/LitecoinNode/DeploymentScripts/testing" #the test download location of the script files
 WEBSITE_DL_URL="https://raw.githubusercontent.com/LitecoinNode/DeploymentScripts/testing/shared/www" #the test download location of the status page website files
+
+#define download locations
+#SCRIPT_DL_URL="https://raw.githubusercontent.com/LitecoinNode/DeploymentScripts/master" #the download location of the script files
+#WEBSITE_DL_URL="https://raw.githubusercontent.com/LitecoinNode/DeploymentScripts/master/shared/www" #the download location of the status page website files
+LITECOIN_DL_URL="https://download.litecoin.org/litecoin-0.8.7.5/linux/litecoin-0.8.7.5-linux.tar.xz" #litecoin download link
+NODESTATUS_DL_URL="$SCRIPT_DL_URL/shared/litecoin-node-status.py" #the download location of the nodestatus.py file
 
 #generate random user and password for rpc
 RPC_USER=`< /dev/urandom tr -dc A-Za-z0-9 | head -c30` #this generates a random rpc username
@@ -48,15 +48,15 @@ PS3="Please select your choice: "
 CHOICE=("Ubuntu" "Debian" "CentOS" "Exit")
 select CHC in "${CHOICE[@]}"
 do
-    case $CHC in
-        "Ubuntu")
+	case $CHC in
+		"Ubuntu")
 				#define distribution
 				DIST="ubuntu"
 				
 				#make scripts directory
 				mkdir -v $HOME/scripts
-
-                wget $SCRIPT_DL_URL/$DIST/$DIST-install.sh -P $HOME
+				
+				wget $SCRIPT_DL_URL/$DIST/$DIST-install.sh -P $HOME
 				source $HOME/$DIST-install.sh
 				rm -f -v $HOME/$DIST-install.sh
 				
@@ -70,8 +70,8 @@ do
 				
 				#we are done. exit the script
 				exit
-            ;;
-        "Debian")
+			;;
+		"Debian")
 				#define distribution
 				DIST="debian"
 				
@@ -79,7 +79,7 @@ do
 				#mkdir -v $HOME/scripts
 				
 				echo "A $DIST installation script is not yet available."
-                #wget $SCRIPT_DL_URL/$DIST/$DIST-install.sh -P $HOME
+				#wget $SCRIPT_DL_URL/$DIST/$DIST-install.sh -P $HOME
 				#source $HOME/$DIST-install.sh
 				#rm -f -v $HOME/$DIST-install.sh
 								
@@ -93,8 +93,8 @@ do
 				
 				#we are done. exit the script
 				#exit
-            ;;
-        "CentOS")
+			;;
+		"CentOS")
 				#define distribution
 				DIST="centos"
 				
@@ -102,7 +102,7 @@ do
 				#mkdir -v $HOME/scripts
 				
 				echo "A $DIST installation script is not yet available."
-                #wget $SCRIPT_DL_URL/$DIST/$DIST-install.sh -P $HOME
+				#wget $SCRIPT_DL_URL/$DIST/$DIST-install.sh -P $HOME
 				#source $HOME/$DIST-install.sh
 				#rm -f -v $HOME/$DIST-install.sh
 				
@@ -116,11 +116,11 @@ do
 				
 				#we are done. exit the script
 				#exit
-            ;;
-        "Exit")
-            echo ""
-            break
-            ;;
-        *) echo "Invalid option.";;
-    esac
+			;;
+		"Exit")
+				echo ""
+				break
+			;;
+		*) echo "Invalid option.";;
+	esac
 done
