@@ -68,7 +68,7 @@ then
 
 		#Add $WEBSITE_DIR to the new litecoin-node-status.py script
 		echo "Add the distributions website dir to the litecoin-nodes-status.py script"
-		sed -i -e '14iff = open('"'$WEBSITE_DIR/index.html'"', '"'w'"')\' $HOME/scripts/litecoin-node-status.py
+		sed -i -e '13iff = open('"'$WEBSITE_DIR/index.html'"', '"'w'"')\' $HOME/scripts/litecoin-node-status.py
 
 		#Add Litecoin rpc user and password to the  new litecoin-node-status.py script
 		echo "Add Litecoin rpc user and password to the litecoin-nodes-tatus.py script"
