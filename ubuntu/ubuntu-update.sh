@@ -33,6 +33,14 @@ then
 	echo "Starting new litecoind"
 	start litecoind
 
+	#remove current and download the new version file
+	echo "Removing current version file."
+	rm -f -v $HOME/scripts/version
+	echo "Downloading the new version file."
+	wget $SCRIPT_DL_URL/shared/version -P $HOME/scripts
+	chmod -R 0600 $HOME/scripts/version
+	chown -R root:root $HOME/scripts/version
+	
 	#update the node status page and litecoin-node-status.py script if the litecoin-node-status.py file exists
 	NODESTATUS_FILE="$HOME/scripts/litecoin-node-status.py"
 	if [ -f "$NODESTATUS_FILE" ]
