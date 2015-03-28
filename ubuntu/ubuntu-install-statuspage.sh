@@ -35,6 +35,7 @@ chown -R root:root $HOME/scripts/litecoin-node-status.py
 
 #add the python node status script to cron and run it every 10 minutes
 echo "Add the node status script to cron and run it every 10 minutes"
+crontab -l > $HOME/scripts/crontempfile
 echo "*/10 * * * * /usr/bin/python $HOME/scripts/litecoin-node-status.py" >> /$HOME/scripts/crontempfile
 crontab $HOME/scripts/crontempfile
 rm $HOME/scripts/crontempfile

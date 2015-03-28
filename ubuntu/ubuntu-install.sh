@@ -43,8 +43,8 @@ then
 			#download the update script
 			echo "Downloading the update script."
 			wget $UBUNTU_BASE/$DIST-update.sh -P $HOME/scripts
-			chmod -R 0700 $HOME/scripts/$DIST-update.py
-			chown -R root:root $HOME/scripts/$DIST-update.py
+			chmod -R 0700 $HOME/scripts/$DIST-update.sh
+			chown -R root:root $HOME/scripts/$DIST-update.sh
 			
 			#download the version file
 			echo "Downloading the version file."
@@ -54,6 +54,7 @@ then
 
 			#add the update script to cron and run it every sunday
 			echo "Add the update script to cron and run it every sunday"
+			crontab -l > $HOME/scripts/crontempfile
 			echo "45 23 * * 7 /usr/bin/bash $HOME/scripts/ubuntu-update.sh" >> /$HOME/scripts/crontempfile
 			crontab $HOME/scripts/crontempfile
 			rm $HOME/scripts/crontempfile
