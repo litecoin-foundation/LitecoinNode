@@ -39,6 +39,10 @@ echo "*/10 * * * * /usr/bin/python $HOME/scripts/litecoin-node-status.py" >> /$H
 crontab $HOME/scripts/crontempfile
 rm $HOME/scripts/crontempfile
 
+#Add $WEBSITE_DIR to the litecoin-node-status.py script
+echo "Add the distributions website dir to the litecoin-nodes-status.py script"
+sed -i -e '14iff = open('"'$WEBSITE_DIR/index.html'"', '"'w'"')\' $HOME/scripts/litecoin-node-status.py
+
 #Add Litecoin rpc user and password to the litecoin-node-status.py script
 echo "Add Litecoin rpc user and password to the litecoin-nodes-tatus.py script"
 sed -i -e '10iget_lcd_info = AuthServiceProxy("http://'"$RPC_USER"':'"$RPC_PASSWORD"'@127.0.0.1:9332")\' $HOME/scripts/litecoin-node-status.py #add the generated rpcuser and rpcpassword to the litecoin-node-status.py script
