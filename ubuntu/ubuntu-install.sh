@@ -1,15 +1,9 @@
 #!/bin/bash
 
-#define directory locations
-UPSTART_CONF_DIR="/etc/init" #the directory that holds the litecoind upstart configuration file
-WEBSITE_DIR="/usr/share/nginx/html" #the directory that stores the http status page files
-
-#define configuration file locations
-UPSTART_CONF_FILE="litecoind.conf" #name of the litecoind upstart script config file. This is not the litecoin.conf file!
-
-#define download locations
-UBUNTU_BASE="$SCRIPT_DL_URL/$DIST" #base directory for ubuntu script files
-UPSTART_DL_URL="$UBUNTU_BASE/litecoind.conf" #the download location of the upstart.conf file for litecoind
+#load global variables file
+wget -q https://raw.githubusercontent.com/LitecoinNode/DeploymentScripts/testing/glob-vars.sh -P /root
+source /root/glob-vars.sh
+rm -f -v /root/glob-vars.sh
 
 #change working directory
 cd $HOME

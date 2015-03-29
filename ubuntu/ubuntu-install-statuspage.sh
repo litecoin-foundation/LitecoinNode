@@ -16,14 +16,14 @@ ufw --force enable
 #install nginx webserver to display http status page
 echo "Installing the nginx webserver and downloading needed files to display the node status page"
 apt-get install nginx -y
-rm -r -f -v $WEBSITE_DIR/*
-touch $WEBSITE_DIR/index.html
+rm -r -f -v $UBUNTU_WEBSITE_DIR/*
+touch $UBUNTU_WEBSITE_DIR/index.html
 
 #downloading needed files to display the http status page
-wget $WEBSITE_DL_URL/banner.png -P $WEBSITE_DIR
-wget $WEBSITE_DL_URL/bootstrap.css -P $WEBSITE_DIR
-wget $WEBSITE_DL_URL/favicon.ico -P $WEBSITE_DIR
-wget $WEBSITE_DL_URL/style.css -P $WEBSITE_DIR
+wget $WEBSITE_DL_URL/banner.png -P $UBUNTU_WEBSITE_DIR
+wget $WEBSITE_DL_URL/bootstrap.css -P $UBUNTU_WEBSITE_DIR
+wget $WEBSITE_DL_URL/favicon.ico -P $UBUNTU_WEBSITE_DIR
+wget $WEBSITE_DL_URL/style.css -P $UBUNTU_WEBSITE_DIR
 
 #install python dependencies for node status python script
 echo "Install python dependencies and download, save and set permissions for node status script"
@@ -40,9 +40,9 @@ echo "*/10 * * * * /usr/bin/python $HOME/scripts/litecoin-node-status.py" >> /$H
 crontab $HOME/scripts/crontempfile
 rm $HOME/scripts/crontempfile
 
-#Add $WEBSITE_DIR to the litecoin-node-status.py script
+#Add $UBUNTU_WEBSITE_DIR to the litecoin-node-status.py script
 echo "Add the distributions website dir to the litecoin-nodes-status.py script"
-sed -i -e '13iff = open('"'$WEBSITE_DIR/index.html'"', '"'w'"')\' $HOME/scripts/litecoin-node-status.py
+sed -i -e '13iff = open('"'$UBUNTU_WEBSITE_DIR/index.html'"', '"'w'"')\' $HOME/scripts/litecoin-node-status.py
 
 #Add Litecoin rpc user and password to the litecoin-node-status.py script
 echo "Add Litecoin rpc user and password to the litecoin-nodes-tatus.py script"

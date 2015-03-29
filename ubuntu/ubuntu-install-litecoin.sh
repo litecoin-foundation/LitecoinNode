@@ -59,9 +59,9 @@ rm -r -f -v $HOME/$LITECOIN_VER
 
 #add litecoind to upstart so it starts on system boot
 echo "Adding Litecoind upstart script to make it start on system boot"
-wget $UPSTART_DL_URL -P $UPSTART_CONF_DIR
-chmod -R 0644 $UPSTART_CONF_DIR/$UPSTART_CONF_FILE
-chown -R root:root $UPSTART_CONF_DIR/$UPSTART_CONF_FILE
+wget $UBUNTU_UPSTART_DL_URL -P $UBUNTU_UPSTART_CONF_DIR
+chmod -R 0644 $UBUNTU_UPSTART_CONF_DIR/$UBUNTU_UPSTART_CONF_FILE
+chown -R root:root $UBUNTU_UPSTART_CONF_DIR/$UBUNTU_UPSTART_CONF_FILE
 initctl reload-configuration #reload the init config
 
 #start litecoin daemon
