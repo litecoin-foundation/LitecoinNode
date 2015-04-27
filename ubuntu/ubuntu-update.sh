@@ -88,6 +88,17 @@ then
 		#Add Litecoin rpc user and password to the  new litecoin-node-status.py script
 		echo "Add Litecoin rpc user and password to the litecoin-nodes-tatus.py script"
 		sed -i -e '10iget_lcd_info = AuthServiceProxy("http://'"$RPC_USER"':'"$RPC_PASSWORD"'@127.0.0.1:9332")\' $HOME/scripts/litecoin-node-status.py #add the rpcuser and rpcpassword to the litecoin-node-status.py script
+		
+		#Add a countdown to give litecoind some time to start before updating the nodestatus page to prevent an access denied error
+		echo "Start countdown to give litecoind some time to start before updating the node status page."
+		cdtime=$((1 * 15))
+		while [ $cdtime -gt 0 ]; do
+			echo -ne "$cdtime\033[0K\r"
+			sleep 1
+			: $((cdtime--))
+		done
+		
+		#update the nodestatus page
 		python $HOME/scripts/litecoin-node-status.py
 	fi
 else
