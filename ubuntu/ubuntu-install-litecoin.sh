@@ -5,7 +5,7 @@ cd $HOME
 
 #add user account for litecoind
 echo "Adding unprivileged user account for litecoind, building the needed folder structure and setting folder permissions"
-useradd -s /usr/sbin/nologin $LITECOIND_USER 
+useradd -s /usr/sbin/nologin $LITECOIND_USER
 
 #install ufw firewall configuration package
 echo "Installing firewall configuration tool"
@@ -48,13 +48,28 @@ echo "disablewallet=1" >> $LITECOIND_CONF_FILE
 echo "maxconnections=125" >> $LITECOIND_CONF_FILE
 echo "addnode=ltc.lurkmore.com" >> $LITECOIND_CONF_FILE
 
+#gets arch data
+if $ARCH="64"
+then
+    LITECOIN_DL_URL=$LITECOIN_DL_URL_64
+else
+    LITECOIN_DL_URL=$LITECOIN_DL_URL_32
+fi
+
 #download, unpack and move the litecoind binary
-echo "Downloading, unpacking and moving Litecoind to $LITECOIND_BIN_DIR"
+echo "Downloading, unpacking and moving litecoind to $LITECOIND_BIN_DIR"
 wget $LITECOIN_DL_URL -P $HOME
-tar xvfJ $HOME/$LITECOIN_VER.tar.xz
-rm -f -v $HOME/$LITECOIN_VER.tar.xz
-ARCH=$(getconf LONG_BIT)
-cp -f -v $HOME/$LITECOIN_VER/bin/$ARCH/litecoind $LITECOIND_BIN_DIR
+
+#gets file version
+if VNUMBER ! -f "litecoin-0.10.1.3-linux64"
+  then LITECOIN_VER="litecoin-0.10.1.3-linux64" #current litecoin version
+else LITECOIN_VER="litecoin-0.10.1.3-linux32"
+fi
+
+tar -zxvf $HOME/$LITECOIN_VER.tar.gz
+rm -f -v $HOME/$LITECOIN_VER.tar.gz
+cp -f -v $HOME/$LITECOIN_VER/bin/litecoind $LITECOIND_BIN_DIR
+cp -f -v $HOME/$LITECOIN_VER/bin/litecoin-cli $LITECOIND_BIN_DIR
 rm -r -f -v $HOME/$LITECOIN_VER
 
 #add litecoind to upstart so it starts on system boot
@@ -65,5 +80,5 @@ chown -R root:root $UPSTART_CONF_DIR/$UPSTART_CONF_FILE
 initctl reload-configuration #reload the init config
 
 #start litecoin daemon
-echo "Starting Litecoind"
+echo "Starting litecoind"
 start litecoind
