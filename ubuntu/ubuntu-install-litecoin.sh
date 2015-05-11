@@ -49,12 +49,13 @@ echo "maxconnections=125" >> $LITECOIND_CONF_FILE
 echo "addnode=ltc.lurkmore.com" >> $LITECOIND_CONF_FILE
 
 #gets arch data
+if test $ARCH -eq "64"
 then
-    LITECOIN_DL_URL=$LITECOIN_DL_URL_64
-    LITECOIN_VER="litecoin-0.10.1.3-linux64"
+LITECOIN_DL_URL=$LITECOIN_DL_URL_64
+LITECOIN_VER="litecoin-0.10.1.3-linux64"
 else
-    LITECOIN_DL_URL=$LITECOIN_DL_URL_32
-    LITECOIN_VER="litecoin-0.10.1.3-linux32"
+LITECOIN_DL_URL=$LITECOIN_DL_URL_32
+LITECOIN_VER="litecoin-0.10.1.3-linux32"
 fi
 
 #download, unpack and move the litecoind binary
