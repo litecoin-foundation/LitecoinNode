@@ -46,7 +46,8 @@ echo "server=1" >> $LITECOIND_CONF_FILE
 echo "daemon=1" >> $LITECOIND_CONF_FILE
 echo "disablewallet=1" >> $LITECOIND_CONF_FILE
 echo "maxconnections=125" >> $LITECOIND_CONF_FILE
-echo "addnode=ltc.lurkmore.com" >> $LITECOIND_CONF_FILE
+echo "addnode=$selectedarray" >> $LITECOIND_CONF_FILE
+echo "addnode=$selectedarray_two" >> $LITECOIND_CONF_FILE
 
 #gets arch data
 if test $ARCH -eq "64"
@@ -58,13 +59,15 @@ LITECOIN_DL_URL=$LITECOIN_DL_URL_32
 LITECOIN_VER="litecoin-0.10.1.3-linux32"
 fi
 
+LITECOIN_VER_NO_BIT="litecoin-0.10.1.3"
+
 #download, unpack and move the litecoind binary
 echo "Downloading, unpacking and moving litecoind to $LITECOIND_BIN_DIR"
 wget $LITECOIN_DL_URL -P $HOME
 tar -zxvf $HOME/$LITECOIN_VER.tar.gz
 rm -f -v $HOME/$LITECOIN_VER.tar.gz
-cp -f -v $HOME/$LITECOIN_VER/bin/litecoind $LITECOIND_BIN_DIR
-cp -f -v $HOME/$LITECOIN_VER/bin/litecoin-cli $LITECOIND_BIN_DIR
+cp -f -v $HOME/$LITECOIN_VER_NO_BIT/bin/litecoind $LITECOIND_BIN_DIR
+cp -f -v $HOME/$LITECOIN_VER_NO_BIT/bin/litecoin-cli $LITECOIND_BIN_DIR
 rm -r -f -v $HOME/$LITECOIN_VER
 
 #add litecoind to upstart so it starts on system boot

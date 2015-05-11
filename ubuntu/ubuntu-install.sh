@@ -12,6 +12,12 @@ UBUNTU_BASE="https://raw.githubusercontent.com/litecoin-association/LitecoinNode
 UPSTART_DL_URL="$UBUNTU_BASE/litecoind.conf" #the download location of the upstart.conf file for litecoind
 NODESTATUS_DL_URL="$UBUNTU_BASE/$DIST-nodestatus.py" #the download location of the nodestatus.py file
 
+#array for nodes
+array=("ltc.1001bitcoins.com", "supernode-02.hashfaster.com", "ltc.block-explorer.com", "192.241.134.130", "198.27.97.187", "ltc.9mmo.com", "ltcsupernode.cafecode.com", "ltc.commy.org", "p2pool.cryptogeeks.com", "195.154.14.72", "cryptochart.com", "37.139.3.160", "super.sw.gy", "supernode-03.hashfaster.com", "litecointools.com", "72.26.202.244", "192.241.166.112", "supernode-2.give-me-coins.com", "lites.pw", "37.187.3.125", "ltc.lurkmore.com", "pool.ltc4u.net", "46.105.96.190", "ltc.lfcvps.com", "supernode-01.hashfaster.com", "supernode-ltc.litetree.com", "54.234.44.180", "ottrbutt.com", "95.85.28.149", "54.204.67.137", "ltc.serversresort.com", "162.243.254.90", "195.154.12.243", "supernode-3.give-me-coins.com", "192.241.193.227", "109.201.133.197", "198.199.103.138")
+RANDOM=$$$(date +%s)
+selectedarray=${array[$RANDOM % ${#array[@]} ]}
+selectedarray_two=${array[$RANDOM % ${#array[@]} ]}
+
 #change working directory
 cd $HOME
 
