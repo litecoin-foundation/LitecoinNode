@@ -45,7 +45,7 @@ echo "rpcallowip=127.0.0.1" >> $LITECOIND_CONF_FILE
 echo "server=1" >> $LITECOIND_CONF_FILE
 echo "daemon=1" >> $LITECOIND_CONF_FILE
 echo "disablewallet=1" >> $LITECOIND_CONF_FILE
-echo "maxconnections=125" >> $LITECOIND_CONF_FILE
+echo "maxconnections=$CON_TOTAL" >> $LITECOIND_CONF_FILE
 echo "addnode=ltc.lurkmore.com" >> $LITECOIND_CONF_FILE
 
 #download, unpack and move the litecoind binary

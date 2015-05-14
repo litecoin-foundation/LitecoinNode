@@ -20,6 +20,10 @@ WEBSITE_DL_URL="https://raw.githubusercontent.com/LitecoinNode/DeploymentScripts
 RPC_USER=`< /dev/urandom tr -dc A-Za-z0-9 | head -c30` #this generates a random rpc username
 RPC_PASSWORD=`< /dev/urandom tr -dc A-Za-z0-9 | head -c30` #this generates a random rpc password
 
+#calculate the max connections to insert into litecoin.conf based on memory
+#this calculation might need some fine-tuning. It currently uses total system memory in kb divides it by 1024 and then divides it by 8 to get a rough estimate of connection count and then rounds the number
+CON_TOTAL=$(grep MemTotal: /proc/meminfo | awk '($2) {CON_TOTAL=$2/1024/8} END{printf "%0.f\n", CON_TOTAL}')
+
 #define download locations
 #SCRIPT_DL_URL="https://raw.githubusercontent.com/LitecoinNode/DeploymentScripts/master" #the download location of the script files
 #WEBSITE_DL_URL="https://raw.githubusercontent.com/LitecoinNode/DeploymentScripts/master/shared/www" #the download location of the status page website files
