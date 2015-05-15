@@ -14,8 +14,8 @@ LITECOIND_HOME_DIR="/home/litecoind" #home directory of litecoin user account
 LITECOIND_CONF_FILE="/home/litecoind/.litecoin/litecoin.conf" #the litecoind configuration file
 
 #define test download locations. do not uncomment this unless you know what you are doing!
-SCRIPT_DL_URL="https://raw.githubusercontent.com/LitecoinNode/DeploymentScripts/testing" #the test download location of the script files
-WEBSITE_DL_URL="https://raw.githubusercontent.com/LitecoinNode/DeploymentScripts/testing/shared/www" #the test download location of the status page website files
+SCRIPT_DL_URL="https://raw.githubusercontent.com/litecoin-association/LitecoinNode/testing" #the test download location of the script files
+WEBSITE_DL_URL="https://raw.githubusercontent.com/litecoin-association/LitecoinNode/testing/shared/www/shared/www" #the test download location of the status page website files
 
 #generate random user and password for rpc
 RPC_USER=`< /dev/urandom tr -dc A-Za-z0-9 | head -c30` #this generates a random rpc username
@@ -35,8 +35,8 @@ selectedarray_one=${array[$RANDOM % ${#array[@]} ]}
 selectedarray_two=${array[$RANDOM % ${#array[@]} ]}
 
 #define download locations
-#SCRIPT_DL_URL="https://raw.githubusercontent.com/LitecoinNode/DeploymentScripts/master" #the download location of the script files
-#WEBSITE_DL_URL="https://raw.githubusercontent.com/LitecoinNode/DeploymentScripts/master/shared/www" #the download location of the status page website files
+#SCRIPT_DL_URL="https://raw.githubusercontent.com/litecoin-association/LitecoinNode/master" #the download location of the script files
+#WEBSITE_DL_URL="https://raw.githubusercontent.com/litecoin-association/LitecoinNode/master/shared/www" #the download location of the status page website files
 LITECOIN_DL_URL_64="https://download.litecoin.org/test/litecoin/v0.10.1.3/linux/litecoin-0.10.1.3-linux64.tar.gz" #litecoin x64 download link
 LITECOIN_DL_URL_32="https://download.litecoin.org/test/litecoin/v0.10.1.3/linux/litecoin-0.10.1.3-linux32.tar.gz" #litecoin x32 download link
 NODESTATUS_DL_URL="$SCRIPT_DL_URL/shared/litecoin-node-status.py" #the download location of the nodestatus.py file
