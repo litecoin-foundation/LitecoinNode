@@ -40,8 +40,8 @@ then
 	#download, unpack and move the new litecoind binary
 	echo "Downloading, unpacking and moving new Litecoind version to $LITECOIND_BIN_DIR"
 	wget $LITECOIN_DL_URL -P $HOME
-	tar xvfJ $HOME/$LITECOIN_VER.tar.xz
-	rm -f -v $HOME/$LITECOIN_VER.tar.xz
+	tar zxvf $HOME/$LITECOIN_VER.tar.gz
+	rm -f -v $HOME/$LITECOIN_VER.tar.gz
 	cp -f -v $HOME/$LITECOIN_VER_NO_BIT/bin/litecoind $LITECOIND_BIN_DIR
 	cp -f -v $HOME/$LITECOIN_VER_NO_BIT/bin/litecoin-cli $LITECOIND_BIN_DIR
 	rm -r -f -v $HOME/$LITECOIN_VER
