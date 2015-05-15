@@ -25,14 +25,25 @@ then
 	#remove old litecoind binary
 	echo "Removing old litecoind bin file"
 	rm -f -v $LITECOIND_BIN_DIR/litecoind
+	rm -f -v $LITECOIND_BIN_DIR/litecoin-cli
 
+	#gets arch data
+	if test $ARCH -eq "64"
+	then
+	LITECOIN_DL_URL=$LITECOIN_DL_URL_64
+	LITECOIN_VER="litecoin-0.10.1.3-linux64"
+	else
+	LITECOIN_DL_URL=$LITECOIN_DL_URL_32
+	LITECOIN_VER="litecoin-0.10.1.3-linux32"
+	fi
+	
 	#download, unpack and move the new litecoind binary
 	echo "Downloading, unpacking and moving new Litecoind version to $LITECOIND_BIN_DIR"
 	wget $LITECOIN_DL_URL -P $HOME
 	tar xvfJ $HOME/$LITECOIN_VER.tar.xz
 	rm -f -v $HOME/$LITECOIN_VER.tar.xz
-	ARCH=$(getconf LONG_BIT)
-	cp -f -v $HOME/$LITECOIN_VER/bin/$ARCH/litecoind $LITECOIND_BIN_DIR
+	cp -f -v $HOME/$LITECOIN_VER_NO_BIT/bin/litecoind $LITECOIND_BIN_DIR
+	cp -f -v $HOME/$LITECOIN_VER_NO_BIT/bin/litecoin-cli $LITECOIND_BIN_DIR
 	rm -r -f -v $HOME/$LITECOIN_VER
 
 	#start litecoin daemon
