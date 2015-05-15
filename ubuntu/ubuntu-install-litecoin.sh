@@ -45,8 +45,8 @@ echo "rpcallowip=127.0.0.1" >> $LITECOIND_CONF_FILE
 echo "server=1" >> $LITECOIND_CONF_FILE
 echo "daemon=1" >> $LITECOIND_CONF_FILE
 echo "disablewallet=1" >> $LITECOIND_CONF_FILE
-echo "maxconnections=125" >> $LITECOIND_CONF_FILE
-echo "addnode=$selectedarray" >> $LITECOIND_CONF_FILE
+echo "maxconnections=$CON_TOTAL" >> $LITECOIND_CONF_FILE
+echo "addnode=$selectedarray_one" >> $LITECOIND_CONF_FILE
 echo "addnode=$selectedarray_two" >> $LITECOIND_CONF_FILE
 
 #gets arch data
@@ -59,8 +59,6 @@ LITECOIN_DL_URL=$LITECOIN_DL_URL_32
 LITECOIN_VER="litecoin-0.10.1.3-linux32"
 fi
 
-LITECOIN_VER_NO_BIT="litecoin-0.10.1.3"
-
 #download, unpack and move the litecoind binary
 echo "Downloading, unpacking and moving litecoind to $LITECOIND_BIN_DIR"
 wget $LITECOIN_DL_URL -P $HOME
@@ -72,9 +70,9 @@ rm -r -f -v $HOME/$LITECOIN_VER
 
 #add litecoind to upstart so it starts on system boot
 echo "Adding Litecoind upstart script to make it start on system boot"
-wget $UPSTART_DL_URL -P $UPSTART_CONF_DIR
-chmod -R 0644 $UPSTART_CONF_DIR/$UPSTART_CONF_FILE
-chown -R root:root $UPSTART_CONF_DIR/$UPSTART_CONF_FILE
+wget $UBUNTU_UPSTART_DL_URL -P $UBUNTU_UPSTART_CONF_DIR
+chmod -R 0644 $UBUNTU_UPSTART_CONF_DIR/$UBUNTU_UPSTART_CONF_FILE
+chown -R root:root $UBUNTU_UPSTART_CONF_DIR/$UBUNTU_UPSTART_CONF_FILE
 initctl reload-configuration #reload the init config
 
 #start litecoin daemon
