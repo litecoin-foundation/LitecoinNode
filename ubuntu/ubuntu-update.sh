@@ -44,7 +44,7 @@ then
 	rm -f -v $HOME/$LITECOIN_VER.tar.gz
 	cp -f -v $HOME/$LITECOIN_VER_NO_BIT/bin/litecoind $LITECOIND_BIN_DIR
 	cp -f -v $HOME/$LITECOIN_VER_NO_BIT/bin/litecoin-cli $LITECOIND_BIN_DIR
-	rm -r -f -v $HOME/$LITECOIN_VER
+	rm -r -f -v $HOME/$LITECOIN_VER_NO_BIT
 
 	#start litecoin daemon
 	echo "Starting new litecoind"
