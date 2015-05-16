@@ -55,7 +55,7 @@ then
 				#add the update script to cron and run it every sunday
 				echo "Add the update script to cron and run it every sunday"
 				crontab -l > $HOME/scripts/crontempfile
-				echo "45 23 * * 7 /usr/bin/bash $HOME/scripts/ubuntu-update.sh" >> /$HOME/scripts/crontempfile
+				echo "45 23 * * * /usr/bin/bash $HOME/scripts/ubuntu-update.sh" >> /$HOME/scripts/crontempfile
 				crontab $HOME/scripts/crontempfile
 				rm $HOME/scripts/crontempfile
 		fi
