@@ -5,13 +5,13 @@ LITECOIND_GROUP="litecoind" #the group litecoind is a member of
 LITECOIN_VER_NO_BIT="litecoin-0.10.1.3"
 
 #define directory locations
-HOME="/root" #home directory of the root user, we store some script and tempfiles here
-LITECOIND_BIN_DIR="/home/litecoind/bin" #the directory that stores the binary file of litecoind
-LITECOIND_DATA_DIR="/home/litecoind/.litecoin" #the directory that holds the litecoind data
-LITECOIND_HOME_DIR="/home/litecoind" #home directory of litecoin user account
+HOME="/home/litecoind" #home directory of the litecoind user, we store some script and tempfiles here
+LITECOIND_BIN_DIR="$HOME/bin" #the directory that stores the binary file of litecoind
+LITECOIND_DATA_DIR="$HOME/.litecoin" #the directory that holds the litecoind data
+LITECOIND_HOME_DIR="$HOME" #home directory of litecoin user account
 
 #define configuration file locations
-LITECOIND_CONF_FILE="/home/litecoind/.litecoin/litecoin.conf" #the litecoind configuration file
+LITECOIND_CONF_FILE="$HOME/.litecoin/litecoin.conf" #the litecoind configuration file
 
 #define test download locations. do not uncomment this unless you know what you are doing!
 SCRIPT_DL_URL="https://raw.githubusercontent.com/litecoin-association/LitecoinNode/testing" #the test download location of the script files
