@@ -1,6 +1,6 @@
 #define user account, group and current litecoin version
-LITECOIND_USER="litecoin" #the user litecoind will run under
-LITECOIND_GROUP="litecoin" #the group litecoind is a member of
+LITECOIND_USER="litecoind" #the user litecoind will run under
+LITECOIND_GROUP="litecoind" #the group litecoind is a member of
 #LITECOIN_VER="litecoin-0.8.7.5-linux" #current litecoin version
 LITECOIN_VER_NO_BIT="litecoin-0.10.1.3"
 
