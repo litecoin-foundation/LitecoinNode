@@ -12,10 +12,9 @@ clear
 echo ""
 echo "-----------------------------------------------------------------------"
 echo ""
-echo "Welcome to the Litecoin node installation script."
-echo "This script will install a Litecoin full node on your computer."
-echo "During the installation the script will ask you some questions."
-echo "To start the installation select your Linux distribution from the menu."
+echo "Welcome to the Litecoin node remove script."
+echo "This script will remove the Litecoin full node from your computer."
+echo "To start the removal select your Linux distribution from the menu."
 echo "For more information or help visit http://litecoinnode.org."
 echo ""
 echo "-----------------------------------------------------------------------"
@@ -29,15 +28,12 @@ do
 		"Ubuntu")
 				#define distribution
 				DIST="ubuntu"
-
-				#make scripts directory
-				mkdir -v $HOME/scripts
-
-				wget $SCRIPT_DL_URL/$DIST/$DIST-install.sh -P $HOME
-				source $HOME/$DIST-install.sh
-				rm -f -v $HOME/$DIST-install.sh
-				rm -f -v $HOME/linux-install.sh
-
+				
+				wget $SCRIPT_DL_URL/$DIST/$DIST-remove.sh -P $HOME
+				source $HOME/$DIST-remove.sh
+				rm -f -v $HOME/$DIST-remove.sh
+				rm -f -v $HOME/linux-remove.sh
+								
 				#do we want to reboot the system
 				read -r -p "All done! Do you want to reboot? (Y/N) " ANSWER
 				echo
@@ -45,23 +41,20 @@ do
 				then
 					shutdown -r 1 Press CTRL+C to abort.
 				fi
-
+				
 				#we are done. exit the script
-				exit
-			;;
+				exit	
+				;;
 		"Debian")
 				#define distribution
 				DIST="debian"
-
-				#make scripts directory
-				#mkdir -v $HOME/scripts
-
-				echo "A $DIST installation script is not yet available."
-				#wget $SCRIPT_DL_URL/$DIST/$DIST-install.sh -P $HOME
-				#source $HOME/$DIST-install.sh
-				#rm -f -v $HOME/$DIST-install.sh
-				#rm -f -v $HOME/linux-install.sh
-
+				
+				echo "A $DIST removal script is not yet available."
+				#wget $SCRIPT_DL_URL/$DIST/$DIST-remove.sh -P $HOME
+				#source $HOME/$DIST-remove.sh
+				#rm -f -v $HOME/$DIST-remove.sh
+				#rm -f -v $HOME/linux-remove.sh
+				
 				#do we want to reboot the system
 				#read -r -p "All done! Do you want to reboot? (Y/N) " ANSWER
 				#echo
@@ -69,23 +62,20 @@ do
 				#then
 				#	shutdown -r 1 Press CTRL+C to abort.
 				#fi
-
+				#
 				#we are done. exit the script
 				#exit
 			;;
 		"CentOS")
 				#define distribution
 				DIST="centos"
-
-				#make scripts directory
-				#mkdir -v $HOME/scripts
-
-				echo "A $DIST installation script is not yet available."
-				#wget $SCRIPT_DL_URL/$DIST/$DIST-install.sh -P $HOME
-				#source $HOME/$DIST-install.sh
-				#rm -f -v $HOME/$DIST-install.sh
-				#rm -f -v $HOME/linux-install.sh
-
+				
+				echo "A $DIST removal script is not yet available."
+				#wget $SCRIPT_DL_URL/$DIST/$DIST-remove.sh -P $HOME
+				#source $HOME/$DIST-remove.sh
+				#rm -f -v $HOME/$DIST-remove.sh				
+				#rm -f -v $HOME/linux-remove.sh
+				
 				#do we want to reboot the system
 				#read -r -p "All done! Do you want to reboot? (Y/N) " ANSWER
 				#echo
@@ -93,14 +83,14 @@ do
 				#then
 				#	shutdown -r 1 Press CTRL+C to abort.
 				#fi
-
+				#
 				#we are done. exit the script
 				#exit
 			;;
 		"Exit")
 				echo ""
 				rm -f /root/linux.sh
-				rm -f /$HOME/linux-install.sh
+				rm -f /$HOME/linux-remove.sh
 				break
 			;;
 		*) echo "Invalid option.";;

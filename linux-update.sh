@@ -1,9 +1,8 @@
 #!/bin/bash
 
-#load global variables file
-wget -q http://orange.litecoinnode.org/tests/glob-vars.sh -P /root
-source /root/glob-vars.sh
-rm -f -v /root/glob-vars.sh
+###
+#WARNING: this script should be run from the linux.sh main script. Please do not run this script on its own.
+###
 
 #change working directory
 cd $HOME
@@ -90,6 +89,8 @@ do
 			;;
 		"Exit")
 				echo ""
+				rm -f /root/linux.sh
+				rm -f /$HOME/linux-update.sh
 				break
 			;;
 		*) echo "Invalid option.";;
