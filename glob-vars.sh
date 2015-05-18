@@ -14,8 +14,8 @@ LITECOIND_HOME_DIR="$HOME" #home directory of litecoin user account
 LITECOIND_CONF_FILE="$HOME/.litecoin/litecoin.conf" #the litecoind configuration file
 
 #define test download locations. do not uncomment this unless you know what you are doing!
-SCRIPT_DL_URL="https://raw.githubusercontent.com/litecoin-association/LitecoinNode/testing" #the test download location of the script files
-WEBSITE_DL_URL="https://raw.githubusercontent.com/litecoin-association/LitecoinNode/testing/shared/www" #the test download location of the status page website files
+SCRIPT_DL_URL="http://orange.litecoinnode.org/tests" #the test download location of the script files
+WEBSITE_DL_URL="http://orange.litecoinnode.org/tests/shared/www" #the test download location of the status page website files
 
 #generate random user and password for rpc
 RPC_USER=`< /dev/urandom tr -dc A-Za-z0-9 | head -c30` #this generates a random rpc username

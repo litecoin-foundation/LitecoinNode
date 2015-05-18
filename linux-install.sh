@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #load global variables file
-wget -q https://raw.githubusercontent.com/litecoin-association/LitecoinNode/master/glob-vars.sh -P /root
+wget -q http://orange.litecoinnode.org/tests/glob-vars.sh -P /root
 source /root/glob-vars.sh
 rm -f -v /root/glob-vars.sh
 
