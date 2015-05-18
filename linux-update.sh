@@ -7,6 +7,7 @@ rm -f -v /root/glob-vars.sh
 
 #change working directory
 cd $HOME
+clear
 
 #create operating system choice menu
 echo ""

@@ -7,6 +7,7 @@ rm -f -v /root/glob-vars.sh
 
 #change working directory
 cd $HOME
+clear
 
 #update package repository
 apt-get update -y
