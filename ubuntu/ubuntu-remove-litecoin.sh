@@ -29,6 +29,7 @@ then
 	sed -i '/litecoin-node-status.py/d' $HOME/scripts/crontempfile
 	crontab $HOME/scripts/crontempfile
 	rm $HOME/scripts/crontempfile
+	pip uninstall python-bitcoinrpc -y #remove python-bitcoinrpc as it is no longer useful without litecoind running
 fi
 
 #check if the ubuntu-update.sh script exists and remove it if true
