@@ -19,11 +19,11 @@ then
 fi
 
 #do we want to remove the http status page
-#read -r -p "Do you want to remove the http status page? (Y/N) " ANSWER
-#echo
-#if [[ $ANSWER =~ ^([yY])$ ]]
-#then
-#	wget $UBUNTU_BASE/$DIST-remove-statuspage.sh -P $HOME
-#	source $HOME/$DIST-remove-statuspage.sh
-#	rm -f -v $HOME/$DIST-remove-statuspage.sh
-#fi
+read -r -p "Do you want to remove the http status page? (Y/N) " ANSWER
+echo
+if [[ $ANSWER =~ ^([yY])$ ]]
+then
+	wget $UBUNTU_BASE/$DIST-remove-statuspage.sh -P $HOME
+	source $HOME/$DIST-remove-statuspage.sh
+	rm -f -v $HOME/$DIST-remove-statuspage.sh
+fi
