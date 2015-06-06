@@ -75,6 +75,15 @@ chmod -R 0644 $UBUNTU_UPSTART_CONF_DIR/$UBUNTU_UPSTART_CONF_FILE
 chown -R root:root $UBUNTU_UPSTART_CONF_DIR/$UBUNTU_UPSTART_CONF_FILE
 initctl reload-configuration #reload the init config
 
+#do we want to predownload bootstrap.dat
+read -r -p "Do you want to download the bootstrap.dat file? If you choose yes your initial blockhain sync will most likely be faster but will take up some extra space on your hard drive (Y/N) " ANSWER
+echo
+if [[ $ANSWER =~ ^([yY])$ ]]
+then
+	echo "Downloading bootstrap.dat, this can take a moment"
+	wget $BOOTSTRAP_DL_LOCATION -P $HOME/.litecoin
+fi
+
 #start litecoin daemon
 echo "Starting litecoind"
 start litecoind

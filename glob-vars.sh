@@ -32,6 +32,11 @@ RANDOM=$$$(date +%s)
 selectedarray_one=${array[$RANDOM % ${#array[@]} ]}
 selectedarray_two=${array[$RANDOM % ${#array[@]} ]}
 
+#array for random bootstrap.dat download location
+array=("http://bootstrap.litecoinnode.org/bootstrap.dat") #please add more download locations when we have them
+RANDOM=$$$(date +%s)
+BOOTSTRAP_DL_LOCATION=${array[$RANDOM % ${#array[@]} ]}
+
 #define download locations
 SCRIPT_DL_URL="https://raw.githubusercontent.com/litecoin-association/LitecoinNode/master" #the download location of the script files
 WEBSITE_DL_URL="https://raw.githubusercontent.com/litecoin-association/LitecoinNode/master/shared/www" #the download location of the status page website files
