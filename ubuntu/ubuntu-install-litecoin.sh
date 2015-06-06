@@ -3,7 +3,7 @@
 #change working directory
 cd $HOME
 
-#add user account for litecoind
+#add a user account for litecoind
 echo "Adding unprivileged user account for litecoind, building the needed folder structure and setting folder permissions"
 useradd -s /usr/sbin/nologin $LITECOIND_USER
 

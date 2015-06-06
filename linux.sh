@@ -9,19 +9,19 @@ rm -f -v /root/glob-vars.sh
 cd $HOME
 clear
 
-#create operating system choice menu
 echo ""
 echo "-----------------------------------------------------------------------"
 echo ""
 echo "Welcome to the litecoinnode.org Litecoin full node script for Linux."
 echo "This script will install, update or remove a Litecoin full node."
-echo "We will ask you some questions do determine what to do."
+echo "We will ask you some questions do determine what we need to do."
 echo "To start please select an option from the menu below."
-echo "For more information or help visit http://litecoinnode.org."
+echo "For more information or help visit http://litecoinnode.org"
 echo ""
 echo "-----------------------------------------------------------------------"
 echo ""
 
+#create operating system choice menu
 PS3="Please select your choice: "
 CHOICE=("Install" "Update" "Remove" "Exit")
 select CHC in "${CHOICE[@]}"

@@ -9,18 +9,19 @@ rm -f -v /root/glob-vars.sh
 cd $HOME
 clear
 
-#create operating system choice menu
 echo ""
 echo "-----------------------------------------------------------------------"
 echo ""
 echo "Welcome to the Litecoin node remove script."
 echo "This script will remove the Litecoin full node from your computer."
+echo "We will ask you some questions do determine what we need to do."
 echo "To start the removal select your Linux distribution from the menu."
-echo "For more information or help visit http://litecoinnode.org."
+echo "For more information or help visit http://litecoinnode.org"
 echo ""
 echo "-----------------------------------------------------------------------"
 echo ""
 
+#create operating system choice menu
 PS3="Please select your choice: "
 CHOICE=("Ubuntu" "Debian" "CentOS" "Exit")
 select CHC in "${CHOICE[@]}"
