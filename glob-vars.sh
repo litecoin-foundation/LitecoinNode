@@ -1,7 +1,7 @@
 #define user account, group and current litecoin version
 LITECOIND_USER="litecoind" #the user litecoind will run under
 LITECOIND_GROUP="litecoind" #the group litecoind is a member of
-LITECOIN_VER_NO_BIT="litecoin-0.10.1.3"
+LITECOIN_VER_NO_BIT="litecoin-0.10.2.2"
 
 #define directory locations
 HOME="/home/litecoind" #home directory of the litecoind user, we store some script and tempfiles here
@@ -36,8 +36,8 @@ BOOTSTRAP_DL_LOCATION=${array[$RANDOM % ${#array[@]} ]}
 #define download locations
 SCRIPT_DL_URL="https://raw.githubusercontent.com/litecoin-association/LitecoinNode/master" #the download location of the script files
 WEBSITE_DL_URL="https://raw.githubusercontent.com/litecoin-association/LitecoinNode/master/shared/www" #the download location of the status page website files
-LITECOIN_DL_URL_64="https://download.litecoin.org/test/litecoin/v0.10.1.3/linux/litecoin-0.10.1.3-linux64.tar.gz" #litecoin x64 download link
-LITECOIN_DL_URL_32="https://download.litecoin.org/test/litecoin/v0.10.1.3/linux/litecoin-0.10.1.3-linux32.tar.gz" #litecoin x32 download link
+LITECOIN_DL_URL_64="https://download.litecoin.org/litecoin-0.10.2.2/linux/litecoin-0.10.2.2-linux64.tar.gz" #litecoin x64 download link
+LITECOIN_DL_URL_32="https://download.litecoin.org/litecoin-0.10.2.2/linux/litecoin-0.10.2.2-linux32.tar.gz" #litecoin x32 download link
 NODESTATUS_DL_URL="$SCRIPT_DL_URL/shared/litecoin-node-status.py" #the download location of the litecoin-node-status.py file
 
 
