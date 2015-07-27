@@ -1,63 +1,59 @@
-# DeploymentScripts
+# LitecoinNode
 
-The deployment scripts code repository is a small open source project of [litecoinnode.org](http://litecoinnode.org)
+## What is LitecoinNode?
 
-The project was inspired by a post on the [LitecoinTalk](https://litecointalk.org/index.php?topic=24338.0) forums by Losh11 and aims to make it easy for individuals to deploy and maintain Litecoin full nodes.
+This project is an attempt to make it simpler for anyone who wishes to install the software to ‘become’ a supernode. In other words, the LitecoinNode script allows everyone/anyone to simply answer a bunch of questions; leading to your computer running a full Litecoin Supernode. Here are some features that LitecoinNode supports:-
 
-The scripts are currently in development, use at your own risk! For more information about the project visit [litecoinnode.org](http://litecoinnode.org)
+- HTTP status page [optional]
+- Quick initial block syncing through use of ‘bootstrap.dat’ [optional]
+- Automatic maximum connection calculation to remove exhaustion of you computer
+- DDoS protection
+- Automatic client updates [optional]
 
-## Features
+## Why run a Supernode?
 
-- Installation and configuration of litecoind
-- An optional html status page that displays the status of your node
+A supernode is just a computer which runs the Litecoin Core client 24/7. It allows for long term storage of transactions (through the blockchain). This is done by: syncing the relevant block (group of transactions) with other Litecoin Clients which may not used all day. If you are familiar with Bitcoin, then a supernode is the equivalent of a Bitcoin full node. This list include many of the uses of a supernode:- 
+
+- the network rely’s on Supernodes by helping it accept transactions and blocks from other nodes
+- relaying (sending) this information to other nodes
+- serves lightweight clients as the backbone
+- without a large number of full nodes, the network will become more and more centralised
 
 ## Requirements
 
-- A Linux server
-- Some experience with the Linux operating system
-- Plenty of upstream bandwidth
-- Some spare CPU cycles
-
-NOTE: This script might work on other distributions but is currently only tested on Ubuntu 14.04 LTS. If you tested it successfully on other systems please let us know!
+- Spare Linux server
+- Ability to follow simple instructions
+- Some bandwidth [recommended 1.5mbps upload and download]
+- At least 10GB spare disk space [or equivalent to the size of the blockchain]
 
 ## Installation
 
-Log in to your Linux server and elevate to root.
+- Open Terminal
+- First login to the ‘root’ account [look below]
+- Then type in given line and continue as instructed
 
-```bash
-$sudo su root
+```
+sudo su root
+```
+```
+wget https://raw.githubusercontent.com/litecoin-association/LitecoinNode/master/linux.sh 2>&1 | tee /root/install.log
 ```
 
-Run the deployment script.
+## Updating
 
-```bash
-$wget https://raw.githubusercontent.com/LitecoinNode/DeploymentScripts/master/linux-install.sh -P /root/ ; bash /root/linux-install.sh 2>&1 | tee /root/linux-install.log
+Unless you had selected to enable automated updates, you will have to copy&paste the following line into Terminal to keep to date with the Litecoin network.
+
 ```
-
-The installation will start and leave a log file of the installation at /root/linux-install.log for you to review.
-
-## Updates
-
-It is important to keep your Litecoin node updated with the latest version of the Litecoin software. If you previously used one of our deployment scripts and want to update your Litecoin node to a newer version of the Litecoin software you can run the script below.
-
-Log in to your Linux server and elevate to root.
-
-```bash
-$sudo su root
+sudo su root
 ```
-
-Run the update script.
-
-```bash
-$wget https://raw.githubusercontent.com/LitecoinNode/DeploymentScripts/master/linux-update.sh -P /root/ ; bash /root/linux-update.sh 2>&1 | tee /root/linux-update.log
 ```
-
-The update will start and leave a log file of the installation at /root/linux-update.log for you to review.
+wget https://raw.githubusercontent.com/litecoin-association/LitecoinNode/master/linux.sh -P /root/ ; bash /root/linux.sh 2>&1 | tee /root/update.log
+```
 
 ## Word of warning
 
-Please do not run scripts from the internet without reviewing them first! Always know what you are getting into before executing anything untrusted from the internet.
+Please do not run scripts from the internet without reviewing them first! Always know what you are getting into before executing anything untrusted from the internet. This script will reboot your server when it is done! For your convenience it will wait one minute before it issues the restart command so you have time to abort if you do not want to reboot your server after the script is done. You can abort with the key combination CTRL+C.
 
-This script will reboot your server when it is done! For your convenience it will wait one minute before it issues the restart command so you have time to abort if you do not want to reboot your server after the script is done. You can abort with the key combination CTRL+C.
+## Any errors?
 
-Please test before deploying to production! Testing takes a bit of time but never hurts in the long run!
+Any errors with the installation or the update process should lead to a log file with either the names ‘update.log’ or ‘install.log’ - if there is something wrong, please visit our [GitHub] (https://github.com/litecoin-association/LitecoinNode) and create an issue attached with the corresponding log file. Don’t hesitate to report any errors you encounter.
