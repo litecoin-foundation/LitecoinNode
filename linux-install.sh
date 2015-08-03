@@ -55,24 +55,23 @@ do
 				DIST="debian"
 
 				#make scripts directory
-				#mkdir -v $HOME/scripts
+				mkdir -v $HOME/scripts
 
-				echo "A $DIST installation script is not yet available."
-				#wget $SCRIPT_DL_URL/$DIST/$DIST-install.sh -P $HOME
-				#source $HOME/$DIST-install.sh
-				#rm -f -v $HOME/$DIST-install.sh
-				#rm -f -v $HOME/linux-install.sh
+				wget $SCRIPT_DL_URL/$DIST/$DIST-install.sh -P $HOME
+				source $HOME/$DIST-install.sh
+				rm -f -v $HOME/$DIST-install.sh
+				rm -f -v $HOME/linux-install.sh
 
 				#do we want to reboot the system
-				#read -r -p "All done! Do you want to reboot? (Y/N) " ANSWER
-				#echo
-				#if [[ $ANSWER =~ ^([yY])$ ]]
-				#then
-				#	shutdown -r 1 Press CTRL+C to abort.
-				#fi
+				read -r -p "All done! Do you want to reboot? (Y/N) " ANSWER
+				echo
+				if [[ $ANSWER =~ ^([yY])$ ]]
+				then
+					shutdown -r 1 Press CTRL+C to abort.
+				fi
 
 				#we are done. exit the script
-				#exit
+				exit
 			;;
 		"CentOS")
 				#define distribution
