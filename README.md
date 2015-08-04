@@ -36,7 +36,7 @@ A supernode is just a computer which runs the Litecoin Core client 24/7. It allo
 sudo su root
 ```
 ```
-wget https://raw.githubusercontent.com/litecoin-association/LitecoinNode/master/linux.sh 2>&1 | tee /root/install.log
+wget https://raw.githubusercontent.com/litecoin-association/LitecoinNode/master/linux.sh -P /root/ ; bash /root/linux.sh 2>&1 | tee /root/install.log
 ```
 
 ## Updating
