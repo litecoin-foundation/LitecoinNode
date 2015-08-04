@@ -66,7 +66,7 @@ fi
 
 #remove litecoin specific firewall rules
 echo "Removing firewall rules."
-sudo ufw delete allow 9333/tcp
+ufw delete allow 9333/tcp
 iptables -D INPUT -p tcp --syn --dport 9333 -m connlimit --connlimit-above 8 --connlimit-mask 24 -j REJECT --reject-with tcp-reset
 iptables -D INPUT -p tcp --syn --dport 9333 -m connlimit --connlimit-above 2 -j REJECT --reject-with tcp-reset
 iptables -D INPUT -m state --state NEW -m tcp -p tcp --dport 9333 -j ACCEPT

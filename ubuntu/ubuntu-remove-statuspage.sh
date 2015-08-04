@@ -18,6 +18,6 @@ then
 	apt-get purge nginx nginx-common -y
 	apt-get autoremove -y
 	#disable firewall rule
-	sudo ufw delete allow 80/tcp
+	ufw delete allow 80/tcp
 fi
 

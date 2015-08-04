@@ -61,7 +61,7 @@ fi
 
 #download, unpack and move the litecoind binary
 echo "Downloading, unpacking and moving litecoind to $LITECOIND_BIN_DIR"
-wget $LITECOIN_DL_URL -P $HOME
+wget --progress=bar:force $LITECOIN_DL_URL -P $HOME
 tar -zxvf $HOME/$LITECOIN_VER.tar.gz
 rm -f -v $HOME/$LITECOIN_VER.tar.gz
 cp -f -v $HOME/$LITECOIN_VER_NO_BIT/bin/litecoind $LITECOIND_BIN_DIR
@@ -70,7 +70,7 @@ rm -r -f -v $HOME/$LITECOIN_VER_NO_BIT
 
 #add litecoind to systemd so it starts on system boot
 echo "Adding Litecoind systemd script to make it start on system boot"
-wget $DEBIAN_SYSTEMD_DL_URL -P $DEBIAN_SYSTEMD_CONF_DIR
+wget --progress=bar:force $DEBIAN_SYSTEMD_DL_URL -P $DEBIAN_SYSTEMD_CONF_DIR
 chmod -R 0644 $DEBIAN_SYSTEMD_CONF_DIR/$DEBIAN_SYSTEMD_CONF_FILE
 chown -R root:root $DEBIAN_SYSTEMD_CONF_DIR/$DEBIAN_SYSTEMD_CONF_FILE
 systemctl enable litecoind.service #enable litecoind systemd config file
@@ -81,7 +81,7 @@ echo
 if [[ $ANSWER =~ ^([yY])$ ]]
 then
 	echo "Downloading bootstrap.dat, this can take a moment"
-	wget $BOOTSTRAP_DL_LOCATION -P $HOME/.litecoin
+	wget --progress=bar:force $BOOTSTRAP_DL_LOCATION -P $HOME/.litecoin
 fi
 
 #start litecoin daemon

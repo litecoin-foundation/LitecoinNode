@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #load global variables file
-wget -q https://raw.githubusercontent.com/litecoin-association/LitecoinNode/master/glob-vars.sh -P /root
+wget --progress=bar:force -q https://raw.githubusercontent.com/litecoin-association/LitecoinNode/master/glob-vars.sh -P /root
 source /root/glob-vars.sh
 rm -f -v /root/glob-vars.sh
 
@@ -9,7 +9,7 @@ rm -f -v /root/glob-vars.sh
 cd $HOME
 
 #get current version from repository
-wget $SCRIPT_DL_URL/shared/version -P $HOME
+wget --progress=bar:force $SCRIPT_DL_URL/shared/version -P $HOME
 
 #check version
 LOC_VERSION=$(sed -n 1p $HOME/scripts/version) #get the current local version number
@@ -39,7 +39,7 @@ then
 	
 	#download, unpack and move the new litecoind binary
 	echo "Downloading, unpacking and moving new Litecoind version to $LITECOIND_BIN_DIR"
-	wget $LITECOIN_DL_URL -P $HOME
+	wget --progress=bar:force $LITECOIN_DL_URL -P $HOME
 	tar zxvf $HOME/$LITECOIN_VER.tar.gz
 	rm -f -v $HOME/$LITECOIN_VER.tar.gz
 	cp -f -v $HOME/$LITECOIN_VER_NO_BIT/bin/litecoind $LITECOIND_BIN_DIR
@@ -73,10 +73,10 @@ then
 
 		#get update the website files
 		echo "Updating current website files"
-		wget $WEBSITE_DL_URL/banner.png -P $DEBIAN_WEBSITE_DIR
-		wget $WEBSITE_DL_URL/bootstrap.css -P $DEBIAN_WEBSITE_DIR
-		wget $WEBSITE_DL_URL/favicon.ico -P $DEBIAN_WEBSITE_DIR
-		wget $WEBSITE_DL_URL/style.css -P $DEBIAN_WEBSITE_DIR
+		wget --progress=bar:force $WEBSITE_DL_URL/banner.png -P $DEBIAN_WEBSITE_DIR
+		wget --progress=bar:force $WEBSITE_DL_URL/bootstrap.css -P $DEBIAN_WEBSITE_DIR
+		wget --progress=bar:force $WEBSITE_DL_URL/favicon.ico -P $DEBIAN_WEBSITE_DIR
+		wget --progress=bar:force $WEBSITE_DL_URL/style.css -P $DEBIAN_WEBSITE_DIR
 
 		#Remove the current litecoin-node-status.py file
 		echo "Remove litecoin-node-status.py file"
@@ -84,7 +84,7 @@ then
 
 		#get updated litecoin-node-status.py file
 		echo "download new litecoin-node-status.py file"
-		wget $NODESTATUS_DL_URL -P $HOME/scripts
+		wget --progress=bar:force $NODESTATUS_DL_URL -P $HOME/scripts
 		chmod -R 0700 $HOME/scripts/litecoin-node-status.py
 		chown -R root:root $HOME/scripts/litecoin-node-status.py
 
