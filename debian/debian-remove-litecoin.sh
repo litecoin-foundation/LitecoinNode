@@ -2,12 +2,12 @@
 
 #stop the litecoin daemon
 echo "Stop Litecoind to make sure it does not lock any files"
-stop litecoind
+systemctl stop litecoind.service
 
-#remove the upstart script
-echo "Removing the litecoind upstart script"
-rm -r -f -v $UBUNTU_UPSTART_CONF_DIR/$UBUNTU_UPSTART_CONF_FILE
-initctl reload-configuration #reload the init config
+#remove the systemd script
+echo "Removing the litecoind systemd script"
+systemctl disable litecoind.service #reload the systemd startup config
+rm -r -f -v $DEBIAN_SYSTEMD_CONF_DIR/$DEBIAN_SYSTEMD_CONF_FILE
 
 #remove the litecoind user account and group
 echo "Removing the litecoind user and group"
@@ -32,20 +32,20 @@ then
 	pip uninstall python-bitcoinrpc -y #remove python-bitcoinrpc as it is no longer useful without litecoind running
 fi
 
-#check if the ubuntu-update.sh script exists and remove it if true
-UBUNTU_UPDATE_FILE="$HOME/scripts/ubuntu-update.sh"
+#check if the debian-update.sh script exists and remove it if true
+DEBIAN_UPDATE_FILE="$HOME/scripts/debian-update.sh"
 
-if [ -f "$UBUNTU_UPDATE_FILE" ]
+if [ -f "$DEBIAN_UPDATE_FILE" ]
 then
 
-	#Remove the ubuntu-update.sh file
-	echo "Removing the ubuntu update file"
-	rm -f -v $UBUNTU_UPDATE_FILE
+	#Remove the debian-update.sh file
+	echo "Removing the debian update file"
+	rm -f -v $DEBIAN_UPDATE_FILE
 
-	#remove ubuntu-update.sh from cron
+	#remove debian-update.sh from cron
 	echo "Removing the update script from cron"
 	crontab -l > $HOME/scripts/crontempfile
-	sed -i '/ubuntu-update.sh/d' $HOME/scripts/crontempfile
+	sed -i '/debian-update.sh/d' $HOME/scripts/crontempfile
 	crontab $HOME/scripts/crontempfile
 	rm $HOME/scripts/crontempfile
 fi

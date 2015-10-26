@@ -51,22 +51,21 @@ do
 				#define distribution
 				DIST="debian"
 				
-				echo "A $DIST removal script is not yet available."
-				#wget $SCRIPT_DL_URL/$DIST/$DIST-remove.sh -P $HOME
-				#source $HOME/$DIST-remove.sh
-				#rm -f -v $HOME/$DIST-remove.sh
-				#rm -f -v $HOME/linux-remove.sh
+				wget $SCRIPT_DL_URL/$DIST/$DIST-remove.sh -P $HOME
+				source $HOME/$DIST-remove.sh
+				rm -f -v $HOME/$DIST-remove.sh
+				rm -f -v $HOME/linux-remove.sh
 				
 				#do we want to reboot the system
-				#read -r -p "All done! Do you want to reboot? (Y/N) " ANSWER
-				#echo
-				#if [[ $ANSWER =~ ^([yY])$ ]]
-				#then
-				#	shutdown -r 1 Press CTRL+C to abort.
-				#fi
-				#
+				read -r -p "All done! Do you want to reboot? (Y/N) " ANSWER
+				echo
+				if [[ $ANSWER =~ ^([yY])$ ]]
+				then
+					shutdown -r 1 Press CTRL+C to abort.
+				fi
+				
 				#we are done. exit the script
-				#exit
+				exit
 			;;
 		"CentOS")
 				#define distribution

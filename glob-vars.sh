@@ -40,7 +40,6 @@ LITECOIN_DL_URL_64="https://download.litecoin.org/litecoin-0.10.2.2/linux/liteco
 LITECOIN_DL_URL_32="https://download.litecoin.org/litecoin-0.10.2.2/linux/litecoin-0.10.2.2-linux32.tar.gz" #litecoin x32 download link
 NODESTATUS_DL_URL="$SCRIPT_DL_URL/shared/litecoin-node-status.py" #the download location of the litecoin-node-status.py file
 
-
 #ubuntu specific variables
 #define ubuntu directory locations
 UBUNTU_UPSTART_CONF_DIR="/etc/init" #the directory that stores the litecoind upstart configuration file
@@ -52,3 +51,15 @@ UBUNTU_UPSTART_CONF_FILE="litecoind.conf" #name of the litecoind upstart script 
 #define download locations
 UBUNTU_BASE="$SCRIPT_DL_URL/$DIST" #base directory for ubuntu script files
 UBUNTU_UPSTART_DL_URL="$UBUNTU_BASE/litecoind.conf" #the download location of the upstart.conf file for litecoind
+
+#debian specific variables
+#define debian directory locations
+DEBIAN_SYSTEMD_CONF_DIR="/lib/systemd/system" #the directory that stores the litecoind systemd configuration file
+DEBIAN_WEBSITE_DIR="/var/www/html" #the directory that stores the http status page files
+
+#define configuration file locations
+DEBIAN_SYSTEMD_CONF_FILE="litecoind.service" #name of the litecoind systemd script config file. This is not the litecoin.conf file!
+
+#define download locations
+DEBIAN_BASE="$SCRIPT_DL_URL/$DIST" #base directory for debian script files
+DEBIAN_SYSTEMD_DL_URL="$DEBIAN_BASE/litecoind.service" #the download location of the systemd.conf file for litecoind
