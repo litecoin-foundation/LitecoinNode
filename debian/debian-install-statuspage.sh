@@ -28,7 +28,7 @@ wget --progress=bar:force $WEBSITE_DL_URL/style.css -P $DEBIAN_WEBSITE_DIR
 #install python dependencies for node status python script
 echo "Install python dependencies and download, save and set permissions for node status script"
 apt-get install python-pip -y
-pip install python-bitcoinrpc
+pip install python-bitcoinrpc==0.1
 wget --progress=bar:force $NODESTATUS_DL_URL -P $HOME/scripts
 chmod -R 0700 $HOME/scripts/litecoin-node-status.py
 chown -R root:root $HOME/scripts/litecoin-node-status.py
