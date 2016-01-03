@@ -31,10 +31,10 @@ then
 	if test $ARCH -eq "64"
 	then
 	LITECOIN_DL_URL=$LITECOIN_DL_URL_64
-	LITECOIN_VER="litecoin-0.10.2.2-linux64"
+	LITECOIN_VER="litecoin-0.10.4.0-linux64"
 	else
 	LITECOIN_DL_URL=$LITECOIN_DL_URL_32
-	LITECOIN_VER="litecoin-0.10.2.2-linux32"
+	LITECOIN_VER="litecoin-0.10.4.0-linux32"
 	fi
 	
 	#download, unpack and move the new litecoind binary
