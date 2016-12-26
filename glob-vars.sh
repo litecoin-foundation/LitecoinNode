@@ -63,3 +63,15 @@ DEBIAN_SYSTEMD_CONF_FILE="litecoind.service" #name of the litecoind systemd scri
 #define download locations
 DEBIAN_BASE="$SCRIPT_DL_URL/$DIST" #base directory for debian script files
 DEBIAN_SYSTEMD_DL_URL="$DEBIAN_BASE/litecoind.service" #the download location of the systemd.conf file for litecoind
+
+#raspbian specific variables
+#define raspbian directory locations
+RASPBIAN_SYSTEMD_CONF_DIR="/lib/systemd/system" #the directory that stores the litecoind systemd configuration file
+RASPBIAN_WEBSITE_DIR="/var/www/html" #the directory that stores the http status page files
+
+#define configuration file locations
+RASPBIAN_SYSTEMD_CONF_FILE="litecoind.service" #name of the litecoind systemd script config file. This is not the litecoin.conf file!
+
+#define download locations
+RASPBIAN_BASE="$SCRIPT_DL_URL/$DIST" #base directory for raspbian script files
+RASPBIAN_SYSTEMD_DL_URL="$RASPBIAN_BASE/litecoind.service" #the download location of the systemd.conf file for litecoind

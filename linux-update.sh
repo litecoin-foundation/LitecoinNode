@@ -23,19 +23,19 @@ echo ""
 
 #create operating system choice menu
 PS3="Please select your choice: "
-CHOICE=("Ubuntu" "Debian" "CentOS" "Exit")
+CHOICE=("Ubuntu" "Debian" "Raspbian" "CentOS" "Exit")
 select CHC in "${CHOICE[@]}"
 do
 	case $CHC in
 		"Ubuntu")
 				#define distribution
 				DIST="ubuntu"
-				
+
 				wget $SCRIPT_DL_URL/$DIST/$DIST-update.sh -P $HOME
 				source $HOME/$DIST-update.sh
 				rm -f -v $HOME/$DIST-update.sh
 				rm -f -v $HOME/linux-update.sh
-								
+
 				#do we want to reboot the system
 				read -r -p "All done! Do you want to reboot? (Y/N) " ANSWER
 				echo
@@ -43,19 +43,19 @@ do
 				then
 					shutdown -r 1 Press CTRL+C to abort.
 				fi
-				
+
 				#we are done. exit the script
-				exit	
+				exit
 				;;
 		"Debian")
 				#define distribution
 				DIST="debian"
-				
+
 				wget $SCRIPT_DL_URL/$DIST/$DIST-update.sh -P $HOME
 				source $HOME/$DIST-update.sh
 				rm -f -v $HOME/$DIST-update.sh
 				rm -f -v $HOME/linux-update.sh
-				
+
 				#do we want to reboot the system
 				read -r -p "All done! Do you want to reboot? (Y/N) " ANSWER
 				echo
@@ -63,20 +63,40 @@ do
 				then
 					shutdown -r 1 Press CTRL+C to abort.
 				fi
-				
+
+				#we are done. exit the script
+				exit
+			;;
+		"Raspbian")
+				#define distribution
+				DIST="raspbian"
+
+				wget $SCRIPT_DL_URL/$DIST/$DIST-update.sh -P $HOME
+				source $HOME/$DIST-update.sh
+				rm -f -v $HOME/$DIST-update.sh
+				rm -f -v $HOME/linux-update.sh
+
+				#do we want to reboot the system
+				read -r -p "All done! Do you want to reboot? (Y/N) " ANSWER
+				echo
+				if [[ $ANSWER =~ ^([yY])$ ]]
+				then
+					shutdown -r 1 Press CTRL+C to abort.
+				fi
+
 				#we are done. exit the script
 				exit
 			;;
 		"CentOS")
 				#define distribution
 				DIST="centos"
-				
+
 				echo "A $DIST update script is not yet available."
 				#wget $SCRIPT_DL_URL/$DIST/$DIST-update.sh -P $HOME
 				#source $HOME/$DIST-update.sh
-				#rm -f -v $HOME/$DIST-update.sh				
+				#rm -f -v $HOME/$DIST-update.sh
 				#rm -f -v $HOME/linux-update.sh
-				
+
 				#do we want to reboot the system
 				#read -r -p "All done! Do you want to reboot? (Y/N) " ANSWER
 				#echo
