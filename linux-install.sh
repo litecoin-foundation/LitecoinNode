@@ -73,7 +73,7 @@ do
 				#we are done. exit the script
 				exit
 			;;
-		"Debian")
+		"Raspbian")
 				#define distribution
 				DIST="raspbian"
 
