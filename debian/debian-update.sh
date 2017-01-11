@@ -31,12 +31,12 @@ then
 	if test $ARCH -eq "64"
 	then
 	LITECOIN_DL_URL=$LITECOIN_DL_URL_64
-	LITECOIN_VER="litecoin-0.10.4.0-linux64"
+	LITECOIN_VER="litecoin-0.13.2-x86_64-linux-gnu"
 	else
 	LITECOIN_DL_URL=$LITECOIN_DL_URL_32
-	LITECOIN_VER="litecoin-0.10.4.0-linux32"
+	LITECOIN_VER="litecoin-0.13.2-i686-pc-linux-gnu"
 	fi
-	
+
 	#download, unpack and move the new litecoind binary
 	echo "Downloading, unpacking and moving new Litecoind version to $LITECOIND_BIN_DIR"
 	wget --progress=bar:force $LITECOIN_DL_URL -P $HOME
@@ -57,7 +57,7 @@ then
 	mv -v $HOME/version $HOME/scripts
 	chmod -R 0600 $HOME/scripts/version
 	chown -R root:root $HOME/scripts/version
-	
+
 	#update the node status page and litecoin-node-status.py script if the litecoin-node-status.py file exists
 	NODESTATUS_FILE="$HOME/scripts/litecoin-node-status.py"
 
@@ -99,7 +99,7 @@ then
 		#Add Litecoin rpc user and password to the  new litecoin-node-status.py script
 		echo "Add Litecoin rpc user and password to the litecoin-nodes-tatus.py script"
 		sed -i -e '10iget_lcd_info = AuthServiceProxy("http://'"$RPC_USER"':'"$RPC_PASSWORD"'@127.0.0.1:9332")\' $HOME/scripts/litecoin-node-status.py #add the rpcuser and rpcpassword to the litecoin-node-status.py script
-		
+
 		#Add a countdown to give litecoind some time to start before updating the nodestatus page to prevent an access denied error
 		echo "Start countdown to give litecoind some time to start before updating the node status page."
 		cdtime=$((1 * 15))
@@ -108,7 +108,7 @@ then
 			sleep 1
 			: $((cdtime--))
 		done
-		
+
 		#update the nodestatus page
 		python $HOME/scripts/litecoin-node-status.py
 	fi
