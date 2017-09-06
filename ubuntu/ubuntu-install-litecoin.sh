@@ -11,6 +11,10 @@ useradd -s /usr/sbin/nologin $LITECOIND_USER
 echo "Installing firewall configuration tool"
 apt-get install ufw -y
 
+#install upstart
+echo "Installing upstart"
+apt-get install upstart -y
+
 #allow needed firewall ports
 echo "Setting up firewall ports and enable firewall"
 ufw allow ssh
@@ -52,18 +56,20 @@ echo "addnode=$selectedarray_two" >> $LITECOIND_CONF_FILE
 #gets arch data
 if test $ARCH -eq "64"
 then
+LITECOIN_FILENAME=$LITECOIN_FILENAME_64
 LITECOIN_DL_URL=$LITECOIN_DL_URL_64
-LITECOIN_VER="$LITECOIN_VER_W_BIT-linux64"
+LITECOIN_VER="$LITECOIN_VER_NO_BIT-linux64"
 else
+LITECOIN_FILENAME=$LITECOIN_FILENAME_32
 LITECOIN_DL_URL=$LITECOIN_DL_URL_32
-LITECOIN_VER="$LITECOIN_VER_W_BIT-linux32"
+LITECOIN_VER="$LITECOIN_VER_NO_BIT-linux32"
 fi
 
 #download, unpack and move the litecoind binary
 echo "Downloading, unpacking and moving litecoind to $LITECOIND_BIN_DIR"
 wget $LITECOIN_DL_URL -P $HOME
-tar -zxvf $HOME/$LITECOIN_VER.tar.gz
-rm -f -v $HOME/$LITECOIN_VER.tar.gz
+tar -zxvf $HOME/$LITECOIN_FILENAME
+rm -f -v $HOME/$LITECOIN_FILENAME
 cp -f -v $HOME/$LITECOIN_VER_NO_BIT/bin/litecoind $LITECOIND_BIN_DIR
 cp -f -v $HOME/$LITECOIN_VER_NO_BIT/bin/litecoin-cli $LITECOIND_BIN_DIR
 rm -r -f -v $HOME/$LITECOIN_VER_NO_BIT

@@ -1,8 +1,8 @@
 #define user account, group and current litecoin version
 LITECOIND_USER="litecoind" #the user litecoind will run under
 LITECOIND_GROUP="litecoind" #the group litecoind is a member of
-LITECOIN_VER_W_BIT="litecoin-0.14.2.0"
 LITECOIN_VER_NO_BIT="litecoin-0.14.2"
+LITECOIN_VER_W_BIT="$LITECOIN_VER_NO_BIT.0"
 
 #define directory locations
 HOME="/home/litecoind" #home directory of the litecoind user, we store some script and tempfiles here
@@ -37,10 +37,18 @@ BOOTSTRAP_DL_LOCATION=${array[$RANDOM % ${#array[@]} ]}
 #define download locations
 SCRIPT_DL_URL="https://raw.githubusercontent.com/litecoin-association/LitecoinNode/master" #the download location of the script files
 WEBSITE_DL_URL="https://raw.githubusercontent.com/litecoin-association/LitecoinNode/master/shared/www" #the download location of the status page website files
-LITECOIN_DL_URL_64="https://download.litecoin.org/$LITECOIN_VER_NO_BIT/linux/$LITECOIN_VER_NO_BIT-x86_64-linux-gnu.tar.gz" #litecoin x64 download link
-LITECOIN_DL_URL_32="https://download.litecoin.org/$LITECOIN_VER_NO_BIT/linux/$LITECOIN_VER_NO_BIT-i686-pc-linux-gnu.tar.gz" #litecoin x32 download link
-LITECOIN_DL_URL_ARM="https://download.litecoin.org/$LITECOIN_VER_NO_BIT/linux/$LITECOIN_VER_NO_BIT-arm-linux-gnueabihf.tar.gz" #litecoin arm download link - EXPERIMENTAL
-LITECOIN_DL_URL_ARCH64="https://download.litecoin.org/$LITECOIN_VER_NO_BIT/linux/$LITECOIN_VER_NO_BIT-aarch64-linux-gnu.tar.gz" #litecoin arch64 download link - EXPERIMENTAL
+
+LITECOIN_FILENAME_64="$LITECOIN_VER_NO_BIT-x86_64-linux-gnu.tar.gz" #litecoin x64 file name
+LITECOIN_DL_URL_64="https://download.litecoin.org/$LITECOIN_VER_NO_BIT/linux/$LITECOIN_FILENAME_64" #litecoin x64 download link
+
+LITECOIN_FILENAME_32="$LITECOIN_VER_NO_BIT-i686-pc-linux-gnu.tar.gz" #litecoin x32 file name
+LITECOIN_DL_URL_32="https://download.litecoin.org/$LITECOIN_VER_NO_BIT/linux/$LITECOIN_FILENAME_32" #litecoin x32 download link
+
+LITECOIN_FILENAME_ARM="$LITECOIN_VER_NO_BIT-arm-linux-gnueabihf.tar.gz" #litecoin arm file name
+LITECOIN_DL_URL_ARM="https://download.litecoin.org/$LITECOIN_VER_NO_BIT/linux/$LITECOIN_FILENAME_ARM" #litecoin arm download link - EXPERIMENTAL
+
+LITECOIN_FILENAME_ARCH64="$LITECOIN_VER_NO_BIT-aarch64-linux-gnu.tar.gz" #litecoin arch64 file name
+LITECOIN_DL_URL_ARCH64="https://download.litecoin.org/$LITECOIN_VER_NO_BIT/linux/$LITECOIN_FILENAME_ARCH64" #litecoin arch64 download link - EXPERIMENTAL
 NODESTATUS_DL_URL="$SCRIPT_DL_URL/shared/litecoin-node-status.py" #the download location of the litecoin-node-status.py file
 
 #ubuntu specific variables

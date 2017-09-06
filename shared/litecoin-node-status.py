@@ -1,4 +1,4 @@
-#!/usr/bin/python 
+#!/usr/bin/python
 
 from bitcoinrpc.authproxy import AuthServiceProxy
 import time
@@ -39,7 +39,7 @@ ff.write("""</div>""")
 ff.write("""<h4>Supernode info</h4>""")
 ff.write("""<table class="table table-striped">""")
 ff.write("<tbody><tr><td>IP</td><td>" + str(ip_data['ip']) + "</td></tr>")
-ff.write("<tr><td>Hostname</td><td>" + str(ip_data['hostname']) + "</td></tr>")
+# ff.write("<tr><td>Hostname</td><td>" + str(ip_data['hostname']) + "</td></tr>")
 ff.write("<tr><td>Network</td><td>" + str(ip_data['org']) + "</td></tr>")
 ff.write("<tr><td>City</td><td>" + str(ip_data['city']) + "</td></tr>")
 ff.write("<tr><td>Country</td><td>" + str(ip_data['country']) + "</td></tr>")

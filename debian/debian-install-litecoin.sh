@@ -53,10 +53,10 @@ echo "addnode=$selectedarray_two" >> $LITECOIND_CONF_FILE
 if test $ARCH -eq "64"
 then
 LITECOIN_DL_URL=$LITECOIN_DL_URL_64
-LITECOIN_VER="$LITECOIN_VER_W_BIT-linux64"
+LITECOIN_VER="$LITECOIN_VER_NO_BIT-linux64"
 else
 LITECOIN_DL_URL=$LITECOIN_DL_URL_32
-LITECOIN_VER="$LITECOIN_VER_W_BIT-linux32"
+LITECOIN_VER="$LITECOIN_VER_NO_BIT-linux32"
 fi
 
 #download, unpack and move the litecoind binary
