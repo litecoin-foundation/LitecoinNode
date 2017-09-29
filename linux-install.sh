@@ -11,6 +11,7 @@ clear
 
 echo ""
 echo "-----------------------------------------------------------------------"
+echo "version - $LITECOIN_VER_NO_BIT"
 echo ""
 echo "Welcome to the Litecoin node installation script."
 echo "This script will install a Litecoin full node on your computer."
